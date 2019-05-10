@@ -2,25 +2,44 @@
 #define LAPTOP_H
 
 #include <string>
-#include <vector>
-#include "store.h"
 #include "product.h"
 
 using namespace std;
 
-class Laptop : public Store
+
+class Laptop : public Product
 {
 public:
 	Laptop();
+	Laptop(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery);
+	
+	//specs *specSheet = new specs;	
 
-	vector<Product> loadingLaptop;
-	int totalLaptop;
-	Product *laptop;
+	string cpu;
+	int ram;
+	string gpu;
+	int ssd;
+	int hdd;
+	float size;
+	float weight;	
+	int battery;
 
-	virtual void sort(int toalProduct, Product *product);		//this function will prompt the object to look for products of its kind from store object
-	virtual void loadData();		//this function will convert vector into array then delete it, for better run-time performance
+	string getcpu();
+	int getram();
+	string getgpu();
+	int getssd();
+	int gethdd();
+	float getsize();
+	float getweight();
+	int getBattery();
+
+	//void setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight);		//add data to specSheet 
+	//specs *getSpecs();
+
+	virtual void printSpecs();
+
+
 	~Laptop();
-
 };
 
 #endif

@@ -6,23 +6,24 @@ using namespace std;
 //implement the default product constructor
 Product::Product()
 {
-	name = "[Insert a name here]";
-	price = 399;
-	qty = 1;
-	description = "[Insert a description here]";
-	productType = "laptop";
+	id = idList;
+	idList++;
 }
 
-//implement the product (pName, pPrice, pQty, pDescription, pType) constructor
-Product::Product(string pName, float pPrice, int pQty, string pDescription, string pType)
+/*
+//implement the product (pName, pPrice, pQty, pDescription, pType, pBrand) constructor
+Product::Product(string pName, float pPrice, int pQty, string pDescription, string pType, string pBrand)
 {
 	name = pName;
 	price = pPrice;
 	qty = pQty;
 	description = pDescription;
-	productType = pType;
+	brand = pBrand;
 }
+*/
 
+//implement thal product idList function
+int Product::idList = 218686;				//if ask, this number is from random.org 
 
 //implement the product setName function
 void Product::setName(string pName)
@@ -72,18 +73,34 @@ string Product::getDescription()
 	return description;
 }
 
-//implement the product setProductType fucntion
-void Product::setProductType(string pType)
+//implement the product setBrand function
+void Product::setBrand(string pBrand)
 {
-	productType = pType;
+	brand = pBrand;
 }
 
-//implement the product getProductType function
-string Product::getProductType()
+//implement the product getBrand function
+string Product::getBrand()
 {
-	return productType;
+	return brand;
 }
 
+//implement the product getID function
+int Product::getID()
+{
+	return id;
+}
+
+//implement the product setMatch function
+void Product::setMatch(int score) {
+	match += score;
+}
+
+//implement the product getMatch function
+int Product::getMatch()
+{
+	return match;
+}
 
 //implement the product destructor
 Product::~Product()

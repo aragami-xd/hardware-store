@@ -3,24 +3,33 @@
 
 #include <string>
 #include <vector>
-#include "store.h"
 #include "product.h"
 
-using namespace std;
-
-class Phone : public Store
+class Phone : public Product 
 {
-public:
+public: 
 	Phone();
+	Phone(string pCpu, int pRam, int pStorage, float pSize, vector<float> prCamera, float pfCamera, int pBattery);
 
-	vector<Product> loadingPhone;
-	int totalPhone;
-	Product *phone;
+	string cpu;
+	int ram;
+	float size;
+	int storage;
+	vector<float> rCamera;			//bc nowadays no phones have a single rear camera anymore (nokia 9 pureview)
+	float fCamera;
+	int battery;
 
-	virtual void sort(int toalProduct, Product *product);
-	virtual void loadData();
+	string getCpu();
+	int getRam();
+	float getSize();
+	int getStorage();
+	vector<float> getrCamera();
+	float getfCamera();
+	int getBattery();
+
+	virtual void printSpecs();
+
 	~Phone();
-
 };
 
 #endif

@@ -4,30 +4,37 @@
 #include <string>
 #include <vector>
 
-#include "store.h"
 #include "product.h"
 
 using namespace std;
 
-class Search : public Store
+class Search 
 {
 public:
 	Search();
-	Search(Store store);
-
-	Store *searchStore;
 
 	string phrase;
 	vector<string> keywords;
 
-	string name;
+	vector<string> name;
 	string brand;
 	string type;
 
-	vector<string> inputSearch();
+	int scoreBrand;
+	int scoreType;
+	int scoreName;
 
-	void sortBrand();
-	void sortType();
+	vector<string> inputSearch();			//input the search "sentence" from the keyboard and split to words
+	void getKeyword(vector<string> result);				//save the search result to keywords
+	vector<string> getAllData(string productData[], int totalProduct);			//remove duplicate from dataset 
+
+	void sortBrand(string inputBrand[], int totalProduct);		//check if there are any brand in the keyword
+	void sortType(string inputType[], int totalProduct);		//check if there are any type in the keyword
+	void sortName(string inputName[]);				//the rest of the data will be name 
+
+	void matchBrand(int totalProduct);
+	void matchType(int totalProduct);
+	
 
 	~Search();
 };

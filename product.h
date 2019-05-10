@@ -10,15 +10,18 @@ class Product
 {
 public:
 	Product();
-	Product(string pName, float pPrice, int pQty, string pDescription, string pType);
+	//Product(string pName, float pPrice, int pQty, string pDescription, string pType, string pBrand);
 
 	string name;
 	float price;
 	int qty;
 	string description;
-	string productType;				//the main type of the product, like laptops, smartphones, desktops, cameras, etc.
-	//string tags[];					//this will contain tag details. for eg: a laptop will have tags like ultrabook, gamingLaptop, 2in1, etc. a phone will have tags like flagship, budget, midRange, etc.
-	string brand;	
+	string brand;
+
+	int id;
+	static int idList;		
+
+	int match;			//this variable will store the score of how match the object is to the search result 			
 
 	void setName(string pName);
 	string getName();
@@ -28,8 +31,18 @@ public:
 	int getQty();	
 	void setDescription(string pDescription);
 	string getDescription();
-	void setProductType(string pType);
-	string getProductType();
+	void setBrand(string pBrand);
+	string getBrand();
+
+	int getID();
+
+	void setMatch(int score);			//this function will add the score to "match" when searching
+	int getMatch();			
+
+
+	//virtual void setSpecs() =0;				//abstract method used to record data into specs 
+	//virtual specs* getSpecs() =0;		//abstract method used to retrieve data from specs 	
+	virtual void printSpecs() =0;
 	
 
 	~Product();
