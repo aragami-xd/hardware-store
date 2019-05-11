@@ -2,6 +2,7 @@
 #define PRODUCT_H
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -10,29 +11,31 @@ class Product
 {
 public:
 	Product();
-	//Product(string pName, float pPrice, int pQty, string pDescription, string pType, string pBrand);
 
-	string name;
+	vector<string> name;
 	float price;
 	int qty;
 	string description;
 	string brand;
+	string type;
 
 	int id;
 	static int idList;		
 
 	int match;			//this variable will store the score of how match the object is to the search result 			
 
-	void setName(string pName);
-	string getName();
-	void setPrice(float pPrice);
+	void setName(vector<string> pName);			//name
+	vector<string> getName();
+	void setPrice(float pPrice);		//price
 	float getPrice();
-	void setQty(int pQty);
+	void setQty(int pQty);			//qty
 	int getQty();	
-	void setDescription(string pDescription);
+	void setDescription(string pDescription);	//description
 	string getDescription();
-	void setBrand(string pBrand);
+	void setBrand(string pBrand);		//brand
 	string getBrand();
+	void setType(string pType);		//type
+	string getType();
 
 	int getID();
 

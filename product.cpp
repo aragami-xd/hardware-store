@@ -1,5 +1,6 @@
 #include "product.h"
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -10,29 +11,17 @@ Product::Product()
 	idList++;
 }
 
-/*
-//implement the product (pName, pPrice, pQty, pDescription, pType, pBrand) constructor
-Product::Product(string pName, float pPrice, int pQty, string pDescription, string pType, string pBrand)
-{
-	name = pName;
-	price = pPrice;
-	qty = pQty;
-	description = pDescription;
-	brand = pBrand;
-}
-*/
-
 //implement thal product idList function
 int Product::idList = 218686;				//if ask, this number is from random.org 
 
 //implement the product setName function
-void Product::setName(string pName)
+void Product::setName(vector<string> pName)
 {
 	name = pName;
 }
 
 //implement the product getName function
-string Product::getName()
+vector<string> Product::getName()
 {
 	return name;
 }
@@ -83,6 +72,18 @@ void Product::setBrand(string pBrand)
 string Product::getBrand()
 {
 	return brand;
+}
+
+//implement the product setType function 
+void Product::setType(string pType)
+{
+	type = pType;
+}
+
+//implement the product getType function
+string Product::getType()
+{
+	return type;
 }
 
 //implement the product getID function

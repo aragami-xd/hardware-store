@@ -12,8 +12,9 @@ class Search
 {
 public:
 	Search();
+	Search(int totalProduct);
 
-	string phrase;
+	int totalProduct;
 	vector<string> keywords;
 
 	vector<string> name;
@@ -24,16 +25,15 @@ public:
 	int scoreType;
 	int scoreName;
 
-	vector<string> inputSearch();			//input the search "sentence" from the keyboard and split to words
-	void getKeyword(vector<string> result);				//save the search result to keywords
-	vector<string> getAllData(string productData[], int totalProduct);			//remove duplicate from dataset 
+	void inputSearch();			//input the search "sentence" from the keyboard and split to words
+	vector<string> getAllData(string productData[]);			//remove duplicate from dataset 
 
-	void sortBrand(string inputBrand[], int totalProduct);		//check if there are any brand in the keyword
-	void sortType(string inputType[], int totalProduct);		//check if there are any type in the keyword
-	void sortName(string inputName[]);				//the rest of the data will be name 
+	void sortBrand(string inputBrand[]);		//check if there are any brand in the keyword
+	void sortType(string inputType[]);		//check if there are any type in the keyword
+	void sortName();				//the rest of the data will be name 
 
-	void matchBrand(int totalProduct);
-	void matchType(int totalProduct);
+	void matchBrand(vector<Product*> allProduct);
+	void matchType(vector<Product*> allProduct);
 	
 
 	~Search();
