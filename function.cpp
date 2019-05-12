@@ -2,7 +2,9 @@
 #include <vector>
 #include <sstream>
 #include <iterator>
+#include <iostream>
 
+#include "search.h"
 #include "product.h"
 #include "laptop.h"
 #include "phone.h"
@@ -23,9 +25,59 @@ vector<string>* convertName(string productNameString[], int totalProduct)
 }
 
 
+
 Product* productPointer(int totalProduct) 
 {
 	for (int i=0; i<totalProduct; i++) {
 		
+	}
+}
+
+
+//run a list of different search functions 
+void searchFunction(Search *search, string productBrand[], string productType[])
+{
+	search->inputSearch();
+	search->sortBrand(productBrand);
+	search->sortType(productType);
+	search->sortName();
+	search->matchBrand();
+	search->matchType();
+	search->finalResult();
+	search->printResult();
+}
+
+
+//create laptop objects and set their's data 
+void createLaptop(Product *laptop[], int totalProduct, int totalLaptop, string productType[], string productBrand[])
+{
+	int currentLaptop = 0;
+	for (int i=0; i<totalProduct; i++) {
+		if (currentLaptop < totalLaptop) {
+			if (productType[i] == "laptop") {		//check the type. if it's a laptop, the initialize
+				laptop[currentLaptop] = new Laptop();
+				laptop[currentLaptop]->setBrand(productBrand[i]);
+				laptop[currentLaptop]->setType(productType[i]);
+				currentLaptop++;
+			}
+		}
+	}
+}
+
+
+
+//create phone objects and set their's data 
+void createPhone(Product *phone[], int totalProduct, int totalPhone, string productType[], string productBrand[])
+{
+	int currentPhone = 0;
+	for (int i=0; i<totalProduct; i++) {
+		if (currentPhone < totalPhone) {
+			if (productType[i] == "phone") {		//check the type, if match, then create a new phone
+				phone[currentPhone] = new Phone();
+				phone[currentPhone]->setBrand(productBrand[i]);
+				phone[currentPhone]->setType(productType[i]);
+				currentPhone++;
+			}
+		}
 	}
 }
