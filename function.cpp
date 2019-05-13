@@ -43,19 +43,24 @@ void searchFunction(Search *search, string productBrand[], string productType[])
 	search->sortName();
 	search->matchBrand();
 	search->matchType();
-	search->finalResult();
-	search->printResult();
+	search->matchName();
+	
+	vector<Product*> finalProduct = search->finalResult();
+	for (int i=0; i<finalProduct.size(); i++) {
+		cout << i << ". " << finalProduct[i]->getBrand() << endl;
+	}
 }
 
 
 //create laptop objects and set their's data 
-void createLaptop(Product *laptop[], int totalProduct, int totalLaptop, string productType[], string productBrand[])
+void createLaptop(Product *laptop[], int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName)
 {
 	int currentLaptop = 0;
 	for (int i=0; i<totalProduct; i++) {
 		if (currentLaptop < totalLaptop) {
 			if (productType[i] == "laptop") {		//check the type. if it's a laptop, the initialize
 				laptop[currentLaptop] = new Laptop();
+				laptop[currentLaptop]->setName(productName[i]);
 				laptop[currentLaptop]->setBrand(productBrand[i]);
 				laptop[currentLaptop]->setType(productType[i]);
 				currentLaptop++;
@@ -67,13 +72,14 @@ void createLaptop(Product *laptop[], int totalProduct, int totalLaptop, string p
 
 
 //create phone objects and set their's data 
-void createPhone(Product *phone[], int totalProduct, int totalPhone, string productType[], string productBrand[])
+void createPhone(Product *phone[], int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName)
 {
 	int currentPhone = 0;
 	for (int i=0; i<totalProduct; i++) {
 		if (currentPhone < totalPhone) {
 			if (productType[i] == "phone") {		//check the type, if match, then create a new phone
 				phone[currentPhone] = new Phone();
+				phone[currentPhone]->setName(productName[i]);
 				phone[currentPhone]->setBrand(productBrand[i]);
 				phone[currentPhone]->setType(productType[i]);
 				currentPhone++;

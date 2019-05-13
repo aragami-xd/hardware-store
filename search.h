@@ -22,7 +22,6 @@ public:
 	string type;
 
 	vector<Product*> allProduct;
-	vector<Product*> sortedProduct;
 
 	int scoreBrand;			//storing the "score" of matching data (e.g matching type = 50 points, matching type = 20 points)
 	int scoreType;
@@ -38,9 +37,9 @@ public:
 
 	void matchBrand();
 	void matchType();
+	void matchName();
 	
-	void finalResult();
-	void printResult();
+	vector<Product*> finalResult();
 
 	~Search();
 };

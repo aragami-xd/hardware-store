@@ -90,7 +90,7 @@ void Search::sortName()
 //implement the search matchBrand function
 void Search::matchBrand()
 {
-	if (!brand.empty()) {
+	if (!brand.empty()) {			//testing every product's brand with brand
 		for (int i=0; i<totalProduct; i++)	{
 			if (allProduct[i]->getBrand() == brand) {
 				allProduct[i]->setMatch(scoreBrand);
@@ -112,9 +112,27 @@ void Search::matchType()
 	}
 }
 
+//implement the search matchName function
+void Search::matchName()
+{
+	if (name.size() != 0) {
+		for (int i=0; i<name.size(); i++) {					//testing every element of "name" with every element of product's name
+			for (int m=0; m<totalProduct; m++) {
+				vector<string> pName = allProduct[m]->getName();
+				for (int n=0; n< pName.size(); n++) {
+					if (pName[n] == name[i]) {
+						allProduct[i]->setMatch(scoreName);
+					}
+				}
+			}
+		}
+	}
+}
+
 //implement the search finalResult function
-void Search::finalResult()
+vector<Product*> Search::finalResult()
 {		
+	vector<Product*> sortedProduct;
 	for (int i=0; i<totalProduct; i++) {
 		for (int m=i; m<totalProduct; m++) {		//basically sort the name by descending order 
 			if (allProduct[m]->getMatch() > allProduct[i]->getMatch()) {
@@ -124,14 +142,7 @@ void Search::finalResult()
 		sortedProduct.push_back(allProduct[i]);
 	}
 	sortedProduct.erase(sortedProduct.begin() + productShown, sortedProduct.end());		//keep a few top result only 
-}
-
-//implement the search printResult function
-void Search::printResult()
-{
-	for (int i=0; i<sortedProduct.size(); i++) {
-		cout << i << ". " << sortedProduct[i]->getBrand() << endl;
-	}
+	return sortedProduct;
 }
 
 
