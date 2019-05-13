@@ -13,6 +13,7 @@ public:
 	Product();
 
 	vector<string> name;
+	string nameString; 		//for display purpose only. functions will be run on name
 	float price;
 	int qty;
 	string description;
@@ -26,6 +27,8 @@ public:
 
 	void setName(vector<string> pName);			//name
 	vector<string> getName();
+	void setNameString(string pNameString);
+	string getNameString();
 	void setPrice(float pPrice);		//price
 	float getPrice();
 	void setQty(int pQty);			//qty

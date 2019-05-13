@@ -47,13 +47,13 @@ void searchFunction(Search *search, string productBrand[], string productType[])
 	
 	vector<Product*> finalProduct = search->finalResult();
 	for (int i=0; i<finalProduct.size(); i++) {
-		cout << i << ". " << finalProduct[i]->getBrand() << endl;
+		cout << (i+1) << ". " << finalProduct[i]->getBrand() << " " << finalProduct[i]->getNameString() << " " << finalProduct[i]->getMatch() << endl;
 	}
 }
 
 
 //create laptop objects and set their's data 
-void createLaptop(Product *laptop[], int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName)
+void createLaptop(Product *laptop[], int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[])
 {
 	int currentLaptop = 0;
 	for (int i=0; i<totalProduct; i++) {
@@ -61,6 +61,7 @@ void createLaptop(Product *laptop[], int totalProduct, int totalLaptop, string p
 			if (productType[i] == "laptop") {		//check the type. if it's a laptop, the initialize
 				laptop[currentLaptop] = new Laptop();
 				laptop[currentLaptop]->setName(productName[i]);
+				laptop[currentLaptop]->setNameString(productNameString[i]);
 				laptop[currentLaptop]->setBrand(productBrand[i]);
 				laptop[currentLaptop]->setType(productType[i]);
 				currentLaptop++;
@@ -72,7 +73,7 @@ void createLaptop(Product *laptop[], int totalProduct, int totalLaptop, string p
 
 
 //create phone objects and set their's data 
-void createPhone(Product *phone[], int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName)
+void createPhone(Product *phone[], int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[])
 {
 	int currentPhone = 0;
 	for (int i=0; i<totalProduct; i++) {
@@ -80,6 +81,7 @@ void createPhone(Product *phone[], int totalProduct, int totalPhone, string prod
 			if (productType[i] == "phone") {		//check the type, if match, then create a new phone
 				phone[currentPhone] = new Phone();
 				phone[currentPhone]->setName(productName[i]);
+				phone[currentPhone]->setNameString(productNameString[i]);
 				phone[currentPhone]->setBrand(productBrand[i]);
 				phone[currentPhone]->setType(productType[i]);
 				currentPhone++;

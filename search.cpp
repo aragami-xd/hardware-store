@@ -16,7 +16,8 @@ Search::Search()
 	scoreBrand = 20;
 	scoreType = 50;
 	scoreName = 10;
-	productShown = 2;
+	associateType = 10;
+	productShown = 5;
 }
 
 //implement the search (totalProduct) function
@@ -25,7 +26,8 @@ Search::Search(int noProduct, vector<Product*> product)
 	scoreBrand = 20;
 	scoreType = 50;
 	scoreName = 10;
-	productShown = 2;
+	associateType = 10;
+	productShown = 5;
 	allProduct = product;
 	totalProduct = noProduct;
 }
@@ -90,7 +92,7 @@ void Search::sortName()
 //implement the search matchBrand function
 void Search::matchBrand()
 {
-	if (!brand.empty()) {			//testing every product's brand with brand
+	if (!brand.empty()) {			//testing every product's brand with "brand"
 		for (int i=0; i<totalProduct; i++)	{
 			if (allProduct[i]->getBrand() == brand) {
 				allProduct[i]->setMatch(scoreBrand);
@@ -100,11 +102,12 @@ void Search::matchBrand()
 }
 
 
+
 //implement the search matchType function
 void Search::matchType()
 {
 	if (!type.empty()) {
-		for (int i=0; i<totalProduct; i++) {
+		for (int i=0; i<totalProduct; i++) {	
 			if (allProduct[i]->getType() == type) {
 				allProduct[i]->setMatch(scoreType);
 			}
@@ -112,22 +115,38 @@ void Search::matchType()
 	}
 }
 
+
+
 //implement the search matchName function
 void Search::matchName()
 {
 	if (name.size() != 0) {
-		for (int i=0; i<name.size(); i++) {					//testing every element of "name" with every element of product's name
-			for (int m=0; m<totalProduct; m++) {
-				vector<string> pName = allProduct[m]->getName();
-				for (int n=0; n< pName.size(); n++) {
-					if (pName[n] == name[i]) {
-						allProduct[i]->setMatch(scoreName);
+		for (int i=0; i<totalProduct; i++) {
+			bool associate = false;
+			vector<string> pName = allProduct[i]->getName();		//get every product's name
+			for (int m=0; m< pName.size(); m++) {			//compare it to every name 
+				for (int n=0; n<name.size(); n++) {
+					if (pName[m] == name[n]) {			//compare name
+						allProduct[i]->setMatch(scoreName);			//add score if match name
+						associate = true;		//having a name match means other product in same category will get score
 					}
 				}
 			}
+
+			if (associate == true) {		//if a product triggers a name match
+			string pType = allProduct[i]->getType();		//add score to every product in the same category 
+				for (int a=0; a<totalProduct; a++) {			
+					if (allProduct[a]->getType() == pType) {
+						allProduct[a]->setMatch(associateType);
+					}
+				}
+			}
+
 		}
 	}
 }
+
+
 
 //implement the search finalResult function
 vector<Product*> Search::finalResult()

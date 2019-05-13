@@ -26,6 +26,18 @@ vector<string> Product::getName()
 	return name;
 }
 
+//implement the product setNameString function
+void Product::setNameString(string pNameString)
+{
+	nameString = pNameString;
+}
+
+//implement the product getNameString()
+string Product::getNameString()
+{
+	return nameString;
+}
+
 //implement the product setPrice function
 void Product::setPrice(float pPrice)
 {

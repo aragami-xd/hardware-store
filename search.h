@@ -26,6 +26,7 @@ public:
 	int scoreBrand;			//storing the "score" of matching data (e.g matching type = 50 points, matching type = 20 points)
 	int scoreType;
 	int scoreName;
+	int associateType;		//if matchName is called, every product in the same category will also gain some points (normal search engine behavior)
 	int productShown;		//how many products will be shown 
 
 	void inputSearch();			//input the search "sentence" from the keyboard and split to words
