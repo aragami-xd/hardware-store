@@ -1,0 +1,2 @@
+echo 
+g++ product.cpp product.h laptop.cpp laptop.h phone.cpp phone.h search.cpp search.h function.cpp main.cpp && ./a.out 

@@ -16,8 +16,8 @@ Search::Search()
 	scoreBrand = 20;
 	scoreType = 50;
 	scoreName = 10;
-	associateType = 10;
-	productShown = 5;
+	associateName = 10;
+	productShown = 3;
 }
 
 //implement the search (totalProduct) function
@@ -26,8 +26,8 @@ Search::Search(int noProduct, vector<Product*> product)
 	scoreBrand = 20;
 	scoreType = 50;
 	scoreName = 10;
-	associateType = 10;
-	productShown = 5;
+	associateName = 10;
+	productShown = 3;
 	allProduct = product;
 	totalProduct = noProduct;
 }
@@ -54,7 +54,7 @@ void Search::sortBrand(string inputBrand[])
 			}
 		}
 	}
-	cout << "brand " << brand << endl;
+	cout << brand << endl;
 }
 
 
@@ -70,7 +70,7 @@ void Search::sortType(string inputType[])
 			}
 		}
 	}
-	cout << "type " << type << endl;
+	cout << type << endl;
 }
 
 
@@ -82,9 +82,7 @@ void Search::sortName()
 			name.push_back(keywords[i]);
 		}
 	}
-	for (int i=0; i<name.size(); i++) {
-		cout << "name " << name[i] << endl;
-	}
+	cout << "name" << endl;
 }
 
 
@@ -99,6 +97,7 @@ void Search::matchBrand()
 			}
 		}
 	}
+	cout << "matchBrand" << endl;
 }
 
 
@@ -113,6 +112,7 @@ void Search::matchType()
 			}
 		}
 	}
+	cout << "matchTYpe" << endl;
 }
 
 
@@ -134,16 +134,18 @@ void Search::matchName()
 			}
 
 			if (associate == true) {		//if a product triggers a name match
-			string pType = allProduct[i]->getType();		//add score to every product in the same category 
+				string pType = allProduct[i]->getType();		//add score to every product in the same category or brand
+				string pBrand = allProduct[i]->getBrand();
 				for (int a=0; a<totalProduct; a++) {			
-					if (allProduct[a]->getType() == pType) {
-						allProduct[a]->setMatch(associateType);
+					if (allProduct[a]->getType() == pType || allProduct[a]->getBrand() == pBrand) {
+						allProduct[a]->setMatch(associateName);
 					}
 				}
 			}
 
 		}
 	}
+	cout << "matchMNae" << endl;
 }
 
 
@@ -160,7 +162,20 @@ vector<Product*> Search::finalResult()
 		}
 		sortedProduct.push_back(allProduct[i]);
 	}
+
+	bool haveResult = false;			//check if there are any matching result by checking the score of each product
+	for (int i=0; i<totalProduct; i++) {
+		if (allProduct[i]->getMatch() != 0) {		//one product has score > 0, indicate a matching search result 
+			haveResult = true;
+		}
+	}
+
+	if (haveResult == true) {			//keep a few products if the result matches 
 	sortedProduct.erase(sortedProduct.begin() + productShown, sortedProduct.end());		//keep a few top result only 
+	} else if (haveResult == false) {		//remove everything if there are no matching result 
+		sortedProduct.erase(sortedProduct.begin(), sortedProduct.end());
+	}
+
 	return sortedProduct;
 }
 

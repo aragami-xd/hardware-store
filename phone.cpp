@@ -25,6 +25,21 @@ Phone::Phone(string pCpu, int pRam, int pStorage, float pSize, vector<float> prC
 	battery = pBattery;
 }
 
+//implement the phone setSpecs function
+void Phone::setSpecs(string pCpu, int pRam, int pStorage, float pSize, vector<float> prCamera, float pfCamera, int pBattery)
+{
+	cpu = pCpu;
+	ram = pRam;
+	size = pSize;
+	storage = pStorage;
+	for (int i=0; i<prCamera.size(); i++) {
+		rCamera.push_back(prCamera[i]);
+	}
+	fCamera = pfCamera;
+	battery = pBattery;
+}
+
+
 //implement the phone getCpu function
 string Phone::getCpu()
 {
@@ -83,7 +98,7 @@ void Phone::printSpecs()
 	} else {
 		cout << "Rear facing cameras:" << endl;
 		for (int i=0; i<rCamera.size(); i++) {
-			cout << "  Camera " << i << ": " <<  rCamera[i] << " megapixel" << endl;
+			cout << "  Camera " << i+1 << ": " <<  rCamera[i] << " megapixel" << endl;
 		}
 	} 
 	cout << "Front facing camera: " << fCamera << " megapixel" << endl;

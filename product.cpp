@@ -50,18 +50,6 @@ float Product::getPrice()
 	return price;
 }
 
-//implement the product setQty function
-void Product::setQty(int pQty)
-{
-	qty = pQty;
-}
-
-//implement the product getQty function
-int Product::getQty()
-{
-	return qty;
-}
-
 //implement the product setDescription function
 void Product::setDescription(string pDescription)
 {

@@ -25,26 +25,18 @@ Laptop::Laptop(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSi
 	battery = lBattery;
 }
 
-
-/*
 //implement the laptop setSpecs function
-void Laptop::setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight)		
+void Laptop::setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery)
 {
-	specSheet->cpu = lCpu;
-	specSheet->ram = lRam;
-	specSheet->gpu = lGpu;
-	specSheet->ssd = lSsd;
-	specSheet->hdd = lHdd;
-	specSheet->size = lSize;
-	specSheet->weight = lWeight;
+	cpu = lCpu;
+	ram = lRam;
+	gpu = lGpu;
+	ssd = lSsd;
+	hdd = lHdd;
+	size = lSize;
+	weight = lWeight;
+	battery = lBattery;
 }
-
-//implement the laptop specs getSpecs function
-specs* Laptop::getSpecs()
-{
-	return specSheet;
-}
-*/
 
 
 //implement the laptop getcpu function

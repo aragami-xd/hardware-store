@@ -15,7 +15,6 @@ public:
 	vector<string> name;
 	string nameString; 		//for display purpose only. functions will be run on name
 	float price;
-	int qty;
 	string description;
 	string brand;
 	string type;
@@ -30,9 +29,7 @@ public:
 	void setNameString(string pNameString);
 	string getNameString();
 	void setPrice(float pPrice);		//price
-	float getPrice();
-	void setQty(int pQty);			//qty
-	int getQty();	
+	float getPrice();	
 	void setDescription(string pDescription);	//description
 	string getDescription();
 	void setBrand(string pBrand);		//brand
@@ -46,8 +43,6 @@ public:
 	int getMatch();			
 
 
-	//virtual void setSpecs() =0;				//abstract method used to record data into specs 
-	//virtual specs* getSpecs() =0;		//abstract method used to retrieve data from specs 	
 	virtual void printSpecs() =0;
 	
 

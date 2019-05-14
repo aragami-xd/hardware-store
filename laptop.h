@@ -24,6 +24,8 @@ public:
 	float weight;	
 	int battery;
 
+	void setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery);
+
 	string getcpu();
 	int getram();
 	string getgpu();

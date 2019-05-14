@@ -19,6 +19,8 @@ public:
 	float fCamera;
 	int battery;
 
+	void setSpecs(string pCpu, int pRam, int pStorage, float pSize, vector<float> prCamera, float pfCamera, int pBattery);
+
 	string getCpu();
 	int getRam();
 	float getSize();
