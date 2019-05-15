@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iterator> 
 #include <fstream>
+#include <sstream>
 
 #include "product.h"
 #include "search.h"
@@ -17,7 +18,6 @@ extern void searchFunction(Search *search, string productBrand[], string product
 extern void createLaptop(Laptop *laptop[], int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[]);
 extern void createPhone(Phone *phone[], int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[]);
 
-//extern Product* productPointer(int totalProduct);
 
 
 int main()
@@ -31,30 +31,68 @@ int main()
 	Laptop *laptop[totalLaptop];
 	Phone *phone[totalPhone];
 
-
+	//initialize the array of products' data 
+	//type
+	string productType[totalProduct];
 	ifstream typeTxt;
 	typeTxt.open("data/type.txt");
-
-
-	//initialize the array of products (testing purpose only) 
-	string productType[totalProduct];
-	string productBrand[totalProduct] = {"asus", "samsung", "lg", "dell", "huawei", "samsung", "hp"};
-	string productNameString[totalProduct] = {"zenbook 13", "galaxy s10", "g8 thinq", "xps 13", "p30 pro", "galaxy s10 plus", "envy"};
-	vector<string>* productName = convertName(productNameString, totalProduct);		//convert name into names w/out space
-	int productPrice[totalProduct] = {1400, 1000, 1000, 1600, 1000, 1200, 1000};
-
-	
-	int line = 0;
-	string lineType;
 	while (typeTxt.is_open()) {
+		int line = 0;
+		string lineType;
 		while (getline(typeTxt, lineType)) {		//WARNING: since getline() will get the whole line, a whitespace will cause serious trouble
 			productType[line] = lineType;
-			cout << productType[line] << endl;
 			line++;
 		}
 		typeTxt.close();
 	}
+
+	//brand
+	string productBrand[totalProduct];
+	ifstream brandTxt;
+	brandTxt.open("data/brand.txt");
+	while (brandTxt.is_open()) {
+		int line = 0;
+		string lineBrand;
+		while (getline(brandTxt, lineBrand)) {		
+			productBrand[line] = lineBrand;
+			line++;
+		}
+		brandTxt.close();
+	}
+
+	//name
+	string productNameString[totalProduct];
+	ifstream nameTxt;
+	nameTxt.open("data/name.txt");
+	while (nameTxt.is_open()) {
+		int line = 0;
+		string lineName;
+		while (getline(nameTxt, lineName)) {		
+			productNameString[line] = lineName;
+			line++;
+		}
+		nameTxt.close();
+	}
+	vector<string>* productName = convertName(productNameString, totalProduct);		//convert name into names w/out space
+
+	//price
+	int productPrice[totalProduct] = {1400, 1000, 1000, 1600, 1000, 1200, 1000};
+	ifstream priceTxt;
+	priceTxt.open("data/price.txt");
+	while (priceTxt.is_open()) {
+		int line = 0;
+		string linePrice;
+		while (getline(priceTxt, linePrice)) {		
+			istringstream iss(linePrice);	
+			iss >> productPrice[line];
+			line++;
+		}
+		priceTxt.close();
+	}
 	
+
+
+
 
 	//initialize the laptops (and set brand, name)
 	createLaptop(laptop, totalProduct, totalLaptop, productType, productBrand, productName, productNameString, productPrice);
@@ -72,6 +110,11 @@ int main()
 	for (int i=0; i<totalPhone; i++) {
 		allProduct.push_back(phone[i]);
 	}
+
+
+
+
+
 
 
 	//initialize search

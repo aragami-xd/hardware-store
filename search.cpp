@@ -54,7 +54,6 @@ void Search::sortBrand(string inputBrand[])
 			}
 		}
 	}
-	cout << brand << endl;
 }
 
 
@@ -70,7 +69,6 @@ void Search::sortType(string inputType[])
 			}
 		}
 	}
-	cout << type << endl;
 }
 
 
@@ -82,7 +80,6 @@ void Search::sortName()
 			name.push_back(keywords[i]);
 		}
 	}
-	cout << "name" << endl;
 }
 
 
@@ -97,7 +94,6 @@ void Search::matchBrand()
 			}
 		}
 	}
-	cout << "matchBrand" << endl;
 }
 
 
@@ -112,7 +108,6 @@ void Search::matchType()
 			}
 		}
 	}
-	cout << "matchTYpe" << endl;
 }
 
 
@@ -145,7 +140,6 @@ void Search::matchName()
 
 		}
 	}
-	cout << "matchMNae" << endl;
 }
 
 

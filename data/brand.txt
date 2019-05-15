@@ -1,0 +1,7 @@
+asus
+samsung
+lg
+dell
+huawei
+samsung
+hp
