@@ -1,7 +1,32 @@
+blade 15
+blade 13
+zenbook 15
 zenbook 13
-galaxy s10
-g8 thinq
+xps 15
 xps 13
+strix scar ii
+strix hero ii
+swift 3
+swift 5
+swift 7
+gs73 stealth
+gs63 stealth
+inspiron 15 5000
+inspiron 15 7000
+vivobook s15
+vivobook s14
+vivobook s13
+s10
+s10e
+6t
 p30 pro
-galaxy s10 plus
-envy
+7 pro
+note 9
+mate 20 pro
+zenfone 6
+galaxy a60
+galaxy a70
+phone 2
+pixel 3
+pixel 3xl
+f1

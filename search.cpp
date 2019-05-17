@@ -17,7 +17,7 @@ Search::Search()
 	scoreType = 50;
 	scoreName = 10;
 	associateName = 10;
-	productShown = 3;
+	productShown = 8;
 }
 
 //implement the search (totalProduct) function
@@ -27,7 +27,7 @@ Search::Search(int noProduct, vector<Product*> product)
 	scoreType = 50;
 	scoreName = 10;
 	associateName = 10;
-	productShown = 3;
+	productShown = 8;
 	allProduct = product;
 	totalProduct = noProduct;
 }
@@ -36,7 +36,7 @@ Search::Search(int noProduct, vector<Product*> product)
 void Search::inputSearch()
 {
 	string phrase;
-	cout << "Enter a product here: " << endl;
+	cout << "Enter a product here: ";
 	getline(cin, phrase);			//input the whole line of text as a string
 	istringstream iss(phrase);					//convert a 'phrase' into separate 'words'
 	vector<string> result(istream_iterator<string>{iss}, istream_iterator<string>());

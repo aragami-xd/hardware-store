@@ -91,7 +91,6 @@ int Laptop::getBattery()
 //implement the laptop printSpecs function
 void Laptop::printSpecs()
 {
-	cout << endl;
 	cout << "Specifications" << endl;
 	cout << "Processor: " << cpu << endl;
 	cout << "RAM: " << ram << " gb" << endl;

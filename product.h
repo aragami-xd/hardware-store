@@ -9,9 +9,7 @@ using namespace std;
 
 class Product
 {
-public:
-	Product();
-
+private: 
 	vector<string> name;
 	string nameString; 		//for display purpose only. functions will be run on name
 	float price;
@@ -22,7 +20,10 @@ public:
 	int id;
 	static int idList;		
 
-	int match;			//this variable will store the score of how match the object is to the search result 			
+	int match;			//this variable will store the score of how match the object is to the search result 	
+
+public:
+	Product();		
 
 	void setName(vector<string> pName);			//name
 	vector<string> getName();

@@ -9,12 +9,7 @@ using namespace std;
 
 class Laptop : public Product
 {
-public:
-	Laptop();
-	Laptop(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery);
-	
-	//specs *specSheet = new specs;	
-
+private: 
 	string cpu;
 	int ram;
 	string gpu;
@@ -23,6 +18,12 @@ public:
 	float size;
 	float weight;	
 	int battery;
+
+	
+public:
+	Laptop();
+	Laptop(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery);
+
 
 	void setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery);
 

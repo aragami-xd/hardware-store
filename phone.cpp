@@ -85,7 +85,6 @@ int Phone::getBattery()
 //implement the phone printSpecs function
 void Phone::printSpecs()
 {
-	cout << endl;
 	cout << "Specifications" << endl;
 	cout << "Processor: " << cpu << endl;
 	cout << "RAM: " << ram << " gb" <<  endl;

@@ -15,21 +15,21 @@ using namespace std;
 
 extern vector<string>* convertName(string productNameString[], int totalProduct);
 extern void searchFunction(Search *search, string productBrand[], string productType[]);
-extern void createLaptop(Laptop *laptop[], int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[]);
-extern void createPhone(Phone *phone[], int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[]);
+extern void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[]);
+extern void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[]);
 
 
 
 int main()
 {
 	//remember to re-record these variables
-	int totalProduct = 7;
-	int totalLaptop = 3;
-	int totalPhone = 4;
+	int totalProduct = 32;
+	int totalLaptop = 18;
+	int totalPhone = 14;
 
 	//initialize products 
-	Laptop *laptop[totalLaptop];
-	Phone *phone[totalPhone];
+	Laptop *laptop = new Laptop[totalLaptop];
+	Phone *phone = new Phone[totalPhone];
 
 	//initialize the array of products' data 
 	//type
@@ -76,7 +76,7 @@ int main()
 	vector<string>* productName = convertName(productNameString, totalProduct);		//convert name into names w/out space
 
 	//price
-	int productPrice[totalProduct] = {1400, 1000, 1000, 1600, 1000, 1200, 1000};
+	int productPrice[totalProduct];
 	ifstream priceTxt;
 	priceTxt.open("data/price.txt");
 	while (priceTxt.is_open()) {
@@ -104,12 +104,14 @@ int main()
 	//hold the pointer to all the products
 	vector<Product*> allProduct;
 	//initialize the vector of all products 
+	
 	for (int i=0; i<totalLaptop; i++) {
-		allProduct.push_back(laptop[i]);
+		allProduct.push_back(laptop + i);
 	} 
 	for (int i=0; i<totalPhone; i++) {
-		allProduct.push_back(phone[i]);
+		allProduct.push_back(phone + i);
 	}
+	
 
 
 
@@ -128,12 +130,8 @@ int main()
 
 	//cleanup 
 	delete search;
-	for (int i=0; i<totalLaptop; i++) {
-		delete laptop[i];
-	}
-	for (int i=0; i<totalPhone; i++) {
-		delete phone[i];
-	}
+	delete[] laptop;
+	delete[] phone;
 
 	return 0;
 }

@@ -7,10 +7,7 @@
 
 class Phone : public Product 
 {
-public: 
-	Phone();
-	Phone(string pCpu, int pRam, int pStorage, float pSize, vector<float> prCamera, float pfCamera, int pBattery);
-
+private:
 	string cpu;
 	int ram;
 	float size;
@@ -18,6 +15,10 @@ public:
 	vector<float> rCamera;			//bc nowadays no phones have a single rear camera anymore (nokia 9 pureview)
 	float fCamera;
 	int battery;
+	
+public: 
+	Phone();
+	Phone(string pCpu, int pRam, int pStorage, float pSize, vector<float> prCamera, float pfCamera, int pBattery);
 
 	void setSpecs(string pCpu, int pRam, int pStorage, float pSize, vector<float> prCamera, float pfCamera, int pBattery);
 
