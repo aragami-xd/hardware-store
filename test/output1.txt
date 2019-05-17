@@ -1,3 +1,10 @@
+Enter a product here: 
+Search Results: 
+1. asus zenbook 13 - Price: $1200
+2. asus zenbook 15 - Price: $1500
+3. asus strix scar ii - Price: $1600
+4. asus strix hero ii - Price: $1400
+
+Choose a product (From 1 to 4): 
 asus zenbook 13
-dell xps 13
-hp envy 
+Price: $1200

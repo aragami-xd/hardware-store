@@ -1,0 +1,11 @@
+Enter a product here: 
+Search Results: 
+1. samsung galaxy s10 - Price: $1000
+2. samsung galaxy s10e - Price: $800
+3. oneplus 6t - Price: $650
+4. huawei p30 pro - Price: $1000
+
+Choose a product (From 1 to 4): 
+Choose a product (From 1 to 4):
+samsung galaxy s10e
+Price: $800

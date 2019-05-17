@@ -16,8 +16,8 @@ inspiron 15 7000
 vivobook s15
 vivobook s14
 vivobook s13
-s10
-s10e
+galaxy s10
+galaxy s10e
 6t
 p30 pro
 7 pro

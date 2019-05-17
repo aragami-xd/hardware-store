@@ -47,22 +47,25 @@ void searchFunction(Search *search, string productBrand[], string productType[])
 		}
 
 		//selection menu: choose one product
-		int select;
+		string select;
+		int number;
 		bool rightNumber = false;
 		cout << endl;
 		while (rightNumber == false) {			//using a while loop to force user to input a suitable number. if not, do it again
 			cout << "Choose a product (From 1 to " << finalProduct.size() << "): ";
 			cin >> select;
-			select--;		//number starts from 1, but index starts from 0
-			if (select < finalProduct.size()) {		//if the right number was inputed 
+			istringstream iss (select);
+			iss >> number;
+			number--;			//number starts from 1, but index starts from 0
+			if (number < finalProduct.size() && number >= 0) {		//if the right number was inputed 
 				rightNumber = true;
 			}
 		}
 
 		cout << endl;
-		cout << finalProduct[select]->getBrand() << " " << finalProduct[select]->getNameString() << endl;		//print name, price, specs...
-		cout << "Price: $" << finalProduct[select]->getPrice() << endl;
-		finalProduct[select]->printSpecs();
+		cout << finalProduct[number]->getBrand() << " " << finalProduct[number]->getNameString() << endl;		//print name, price, specs...
+		cout << "Price: $" << finalProduct[number]->getPrice() << endl;
+		//finalProduct[number]->printSpecs();
 	} else {
 		cout << "No result" << endl;			//if there are no results
 	}

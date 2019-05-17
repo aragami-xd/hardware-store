@@ -17,7 +17,7 @@ Search::Search()
 	scoreType = 50;
 	scoreName = 10;
 	associateName = 10;
-	productShown = 8;
+	productShown = 4;
 }
 
 //implement the search (totalProduct) function
@@ -27,7 +27,7 @@ Search::Search(int noProduct, vector<Product*> product)
 	scoreType = 50;
 	scoreName = 10;
 	associateName = 10;
-	productShown = 8;
+	productShown = 4;
 	allProduct = product;
 	totalProduct = noProduct;
 }
