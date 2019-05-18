@@ -1,2 +1,11 @@
-echo 
-g++ product.cpp product.h laptop.cpp laptop.h phone.cpp phone.h search.cpp search.h function.cpp main.cpp && ./a.out 
+echo test 1: input "asus zenbook 13" and "1"
+./a.out < test/input1.txt | diff - test/output1.txt
+
+
+echo test 2: input "phone" and "5", which will prompt the program to ask for another input, and "2"
+./a.out < test/input2.txt | diff - test/output2.txt
+
+
+echo test 3: input "a", expect no result
+./a.out < test/input3.txt | diff - test/output3.txt
+

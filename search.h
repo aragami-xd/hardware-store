@@ -10,9 +10,7 @@ using namespace std;
 
 class Search 
 {
-public:
-	Search();
-	Search(int totalProduct, vector<Product*> product);
+private:
 
 	int totalProduct;
 	vector<string> keywords;
@@ -28,6 +26,10 @@ public:
 	int scoreName;
 	int associateName;		//if matchName is called, every product in the same category or brand will also gain some points (normal search engine behavior)
 	int productShown;		//how many products will be shown 
+
+public:
+	Search();
+	Search(int totalProduct, vector<Product*> product);
 
 	void inputSearch();			//input the search "sentence" from the keyboard and split to words
 	vector<string> getAllData(string productData[]);			//remove duplicate from dataset 

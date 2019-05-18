@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iterator>
 #include <iostream>
+#include <fstream>
 
 #include "search.h"
 #include "product.h"
@@ -23,6 +24,80 @@ vector<string>* convertName(string productNameString[], int totalProduct)
 	}
 	return vectorName;
 }
+
+
+//loadType function
+string *loadType(string *productType)
+{
+	ifstream typeTxt;
+	typeTxt.open("data/type.txt");
+	while (typeTxt.is_open()) {
+		int line = 0;
+		string lineType;
+		while (getline(typeTxt, lineType)) {		//WARNING: since getline() will get the whole line, a whitespace will cause serious trouble
+			productType[line] = lineType;
+			line++;
+		}
+		typeTxt.close();
+	}
+	return productType;
+}
+
+
+//loadNameString function
+string *loadNameString(string *productNameString)
+{
+	ifstream nameTxt;
+	nameTxt.open("data/name.txt");
+	while (nameTxt.is_open()) {
+		int line = 0;
+		string lineName;
+		while (getline(nameTxt, lineName)) {		
+			productNameString[line] = lineName;
+			line++;
+		}
+		nameTxt.close();
+	}
+	return productNameString;
+}
+
+
+//loadPrice function
+int *loadPrice(int *productPrice)
+{
+	ifstream priceTxt;
+	priceTxt.open("data/price.txt");
+	while (priceTxt.is_open()) {
+		int line = 0;
+		string linePrice;
+		while (getline(priceTxt, linePrice)) {		
+			istringstream iss(linePrice);	
+			iss >> productPrice[line];
+			line++;
+		}
+		priceTxt.close();
+	}
+	return productPrice;
+}
+
+
+//loadBrand function
+string *loadBrand(string *productBrand)
+{
+	ifstream brandTxt;
+	brandTxt.open("data/brand.txt");
+	while (brandTxt.is_open()) {
+		int line = 0;
+		string lineBrand;
+		while (getline(brandTxt, lineBrand)) {		
+			productBrand[line] = lineBrand;
+			line++;
+		}
+		brandTxt.close();
+	}
+	return productBrand;
+}
+
 
 
 
@@ -62,6 +137,7 @@ void searchFunction(Search *search, string productBrand[], string productType[])
 			}
 		}
 
+		//print out the selected product
 		cout << endl;
 		cout << finalProduct[number]->getBrand() << " " << finalProduct[number]->getNameString() << endl;		//print name, price, specs...
 		cout << "Price: $" << finalProduct[number]->getPrice() << endl;
