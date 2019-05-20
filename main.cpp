@@ -4,26 +4,27 @@
 #include <sstream>
 #include <iterator> 
 #include <fstream>
-#include <sstream>
 
 #include "product.h"
 #include "search.h"
 #include "laptop.h"
 #include "phone.h"
+#include "sort.h"
 
 using namespace std;
 
 extern string* loadType(string *productType);
 extern string* loadBrand(string *productBrand);
 extern string* loadNameString(string *productNameString);
+extern vector<string>* convertName(string productNameString[], int totalProduct);
 extern int* loadPrice(int *productPrice);
 
-extern void searchFunction(Search *search, string productBrand[], string productType[]);
 extern void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[]);
 extern void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[]);
 
-extern vector<string>* convertName(string productNameString[], int totalProduct);
-
+extern vector<Product*> searchFunction(Search *search, string productBrand[], string productType[]);
+extern vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct);
+extern void display(vector<Product*> finalProduct);
 
 int main()
 {
@@ -82,10 +83,14 @@ int main()
 
 
 
-	//initialize search
+	//initialize search and sort
 	Search *search = new Search(totalProduct, allProduct);
-	//search functions
-	searchFunction(search, productBrand, productType);
+	Sort *sort;
+	//search and sort functions
+	vector<Product*> finalProduct = searchFunction(search, productBrand, productType);
+	sort = new Sort(finalProduct);
+	finalProduct = sortFunction(sort, finalProduct);
+	display(finalProduct);
 
 
 

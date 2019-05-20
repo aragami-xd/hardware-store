@@ -5,25 +5,26 @@
 #include <vector>
 #include <iostream>
 
+#include "product.h"
+
 using namespace std;
 
 class Sort
 {
 private: 
-	int productShown;
 	vector<Product*> finalProduct;
-
+	
 public: 
 	Sort();
-	Sort(vector<Product*> product, int noShown);
+	Sort(vector<Product*> product);
 
-	vector<Product*> removeItem();
 	vector<Product*> priceSort();
-	vector<Product*> sizeSort();
-	vector<Product*> screenSort();
-	vector<Product*> ramSort();
+	//vector<Product*> sizeSort();
+	//vector<Product*> ramSort();
+	//vector<Product*> storageSort();
+	//vector<Product*> batterySort();
 
 	~Sort();
-}
+};
 
 #endif

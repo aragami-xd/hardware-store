@@ -17,7 +17,7 @@ Search::Search()
 	scoreType = 50;
 	scoreName = 10;
 	associateName = 10;
-	productShown = 4;
+	productShown = 10;
 }
 
 //implement the search (totalProduct) function
@@ -27,7 +27,7 @@ Search::Search(int noProduct, vector<Product*> product)
 	scoreType = 50;
 	scoreName = 10;
 	associateName = 10;
-	productShown = 4;
+	productShown = 10;
 	allProduct = product;
 	totalProduct = noProduct;
 }
@@ -165,7 +165,12 @@ vector<Product*> Search::finalResult()
 	}
 
 	if (haveResult == true) {			//keep a few products if the result matches 
-	sortedProduct.erase(sortedProduct.begin() + productShown, sortedProduct.end());		//keep a few top result only 
+		sortedProduct.erase(sortedProduct.begin() + productShown, sortedProduct.end());		//keep a few top result only 
+		for (int i=0; i<sortedProduct.size(); i++) {
+			if (sortedProduct[i]->getType() != sortedProduct[0]->getType()) {
+				sortedProduct.erase(sortedProduct.begin() + i);		//remove all product that doesnt have the same type (cheating, but useful later)
+			}
+		}
 	} else if (haveResult == false) {		//remove everything if there are no matching result 
 		sortedProduct.erase(sortedProduct.begin(), sortedProduct.end());
 	}

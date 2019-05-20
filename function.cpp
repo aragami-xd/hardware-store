@@ -9,6 +9,7 @@
 #include "product.h"
 #include "laptop.h"
 #include "phone.h"
+#include "sort.h"
 
 
 using namespace std;
@@ -102,7 +103,7 @@ string *loadBrand(string *productBrand)
 
 
 //run a list of different search functions 
-void searchFunction(Search *search, string productBrand[], string productType[])
+vector<Product*> searchFunction(Search *search, string productBrand[], string productType[])
 {
 	search->inputSearch();
 	search->sortBrand(productBrand);
@@ -111,11 +112,46 @@ void searchFunction(Search *search, string productBrand[], string productType[])
 	search->matchBrand();
 	search->matchType();
 	search->matchName();
+
+	vector<Product*> finalProduct = search->finalResult();
+	return finalProduct;
+}
+
+
+//run a list of sort functions
+vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct) 
+{
+	bool rightNumber = false;
+	string inputString;				//get the input number, convert from string to int in case a retard put a string in
+	int inputNumber;
+
+	while (rightNumber == false) {
+		cout << "Choose a sorting method: " << endl;
+		cout << "1. Relevance" << endl;
+		cout << "2. Price" << endl;
+		cout << "3. Screen " << endl;
+
+		cin >> inputString;
+		istringstream iss(inputString);
+		iss >> inputNumber;
+
+		if (inputNumber == 2) {
+			finalProduct = sort->priceSort();
+		}
+
+		if (inputNumber > 0 && inputNumber < 4) {			//in case a retard put a number not in the range 
+			rightNumber = true;
+		}
+	}
 	
-	//get and print search result 
+	return finalProduct;
+}
+
+
+void display(vector<Product*> finalProduct) 
+{
 	cout << endl;
 	cout << "Search Results: " << endl;
-	vector<Product*> finalProduct = search->finalResult();
 	if (finalProduct.size() != 0) {					//if there are results 
 		for (int i=0; i<finalProduct.size(); i++) {
 			cout << (i+1) << ". " << finalProduct[i]->getBrand() << " " << finalProduct[i]->getNameString() << " - Price: $" << finalProduct[i]->getPrice() << endl;
