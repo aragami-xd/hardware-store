@@ -104,6 +104,32 @@ void Phone::printSpecs()
 	cout << "Battery: " << battery << " mAh" << endl;
 }
 
+
+//implement the phone getpSize function
+float Phone::getpSize()
+{
+	return getSize();
+}
+
+//implement the phone getpRam function
+int Phone::getpRam()
+{
+	return getRam();
+}
+
+//implement the phone getpStorage function
+int Phone::getpStorage()
+{
+	return getStorage();
+}
+
+//implement the phone getpBattery function
+int Phone::getpBattery()
+{
+	return getBattery();
+}
+
+
 //implement the phone destructor
 Phone::~Phone()
 {

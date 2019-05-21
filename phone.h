@@ -32,6 +32,12 @@ public:
 
 	virtual void printSpecs();
 
+	//second revision
+	float getpSize();
+	int getpRam();
+	int getpStorage();
+	int getpBattery();
+
 	~Phone();
 };
 

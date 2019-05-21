@@ -103,6 +103,7 @@ int Product::getMatch()
 	return match;
 }
 
+
 //implement the product destructor
 Product::~Product()
 {

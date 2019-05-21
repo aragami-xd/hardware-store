@@ -13,13 +13,14 @@ class Sort
 {
 private: 
 	vector<Product*> finalProduct;
-	
+
 public: 
 	Sort();
 	Sort(vector<Product*> product);
 
+	int sortType(string type);
 	vector<Product*> priceSort();
-	//vector<Product*> sizeSort();
+	vector<Product*> sizeSort();
 	//vector<Product*> ramSort();
 	//vector<Product*> storageSort();
 	//vector<Product*> batterySort();

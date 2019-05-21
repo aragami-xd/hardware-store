@@ -27,78 +27,59 @@ vector<string>* convertName(string productNameString[], int totalProduct)
 }
 
 
-//loadType function
-string *loadType(string *productType)
+//loadStringData
+string *loadStringData(string *productStringData, string address)
 {
-	ifstream typeTxt;
-	typeTxt.open("data/type.txt");
-	while (typeTxt.is_open()) {
+	ifstream dataTxt;
+	dataTxt.open(address);
+	while (dataTxt.is_open()) {
 		int line = 0;
-		string lineType;
-		while (getline(typeTxt, lineType)) {		//WARNING: since getline() will get the whole line, a whitespace will cause serious trouble
-			productType[line] = lineType;
+		string lineData;
+		while (getline(dataTxt, lineData)) {		//WARNING: since getline() will get the whole line, a whitespace will cause serious trouble
+			productStringData[line] = lineData;
 			line++;
 		}
-		typeTxt.close();
+		dataTxt.close();
 	}
-	return productType;
+	return productStringData;
 }
 
 
-//loadNameString function
-string *loadNameString(string *productNameString)
+//loadIntData function
+int *loadIntData(int *productIntData, string address)
 {
-	ifstream nameTxt;
-	nameTxt.open("data/name.txt");
-	while (nameTxt.is_open()) {
+	ifstream dataTxt;
+	dataTxt.open(address);
+	while (dataTxt.is_open()) {
 		int line = 0;
-		string lineName;
-		while (getline(nameTxt, lineName)) {		
-			productNameString[line] = lineName;
+		string lineData;
+		while (getline(dataTxt, lineData)) {			//input as string so we'll have to convert it to int	
+			istringstream iss(lineData);	
+			iss >> productIntData[line];
 			line++;
 		}
-		nameTxt.close();
+		dataTxt.close();
 	}
-	return productNameString;
+	return productIntData;
 }
 
-
-//loadPrice function
-int *loadPrice(int *productPrice)
+//loadFloatData function
+float *loadFloatData(float *productFloatData, string address)
 {
-	ifstream priceTxt;
-	priceTxt.open("data/price.txt");
-	while (priceTxt.is_open()) {
+	int *productIntData;
+	ifstream dataTxt;
+	dataTxt.open(address);
+	while (dataTxt.is_open()) {
 		int line = 0;
-		string linePrice;
-		while (getline(priceTxt, linePrice)) {		
-			istringstream iss(linePrice);	
-			iss >> productPrice[line];
+		string lineData;
+		while (getline(dataTxt, lineData)) {		
+			productFloatData[line] = stof(lineData);
 			line++;
 		}
-		priceTxt.close();
+		dataTxt.close();
 	}
-	return productPrice;
+	return productFloatData;
 }
-
-
-//loadBrand function
-string *loadBrand(string *productBrand)
-{
-	ifstream brandTxt;
-	brandTxt.open("data/brand.txt");
-	while (brandTxt.is_open()) {
-		int line = 0;
-		string lineBrand;
-		while (getline(brandTxt, lineBrand)) {		
-			productBrand[line] = lineBrand;
-			line++;
-		}
-		brandTxt.close();
-	}
-	return productBrand;
-}
-
 
 
 
@@ -137,6 +118,8 @@ vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct)
 
 		if (inputNumber == 2) {
 			finalProduct = sort->priceSort();
+		} else if (inputNumber == 3) {
+			finalProduct = sort->sizeSort();
 		}
 
 		if (inputNumber > 0 && inputNumber < 4) {			//in case a retard put a number not in the range 
@@ -177,7 +160,7 @@ void display(vector<Product*> finalProduct)
 		cout << endl;
 		cout << finalProduct[number]->getBrand() << " " << finalProduct[number]->getNameString() << endl;		//print name, price, specs...
 		cout << "Price: $" << finalProduct[number]->getPrice() << endl;
-		//finalProduct[number]->printSpecs();
+		finalProduct[number]->printSpecs();
 	} else {
 		cout << "No result" << endl;			//if there are no results
 	}
@@ -191,16 +174,14 @@ void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string prod
 {
 	int current = 0;
 	for (int i=0; i<totalProduct; i++) {
-		if (current < totalLaptop) {
-			if (productType[i] == "laptop") {		//check the type. if it's a laptop, the initialize
-				laptop[current].setName(productName[i]);
-				laptop[current].setNameString(productNameString[i]);
-				laptop[current].setBrand(productBrand[i]);
-				laptop[current].setType(productType[i]);
-				laptop[current].setPrice(productPrice[i]);
-				laptop[current].setSpecs("core i5", 8, "mx150", 256, 0, 15.6, 1.9, 42);
-				current++;
-			}
+		if (productType[i] == "laptop") {		//check the type. if it's a laptop, the initialize
+			laptop[current].setName(productName[i]);
+			laptop[current].setNameString(productNameString[i]);
+			laptop[current].setBrand(productBrand[i]);
+			laptop[current].setType(productType[i]);
+			laptop[current].setPrice(productPrice[i]);
+			laptop[current].setSpecs("core i5", 8, "mx150", 256, 0, 15.6, 1.9, 42);
+			current++;
 		}
 	}
 }
@@ -209,20 +190,21 @@ void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string prod
 
 
 //create phone objects and set their's data 
-void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[])
+void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], float productSize[])
 {
 	int current = 0;
+	int phoneCurrent = 0;
 	for (int i=0; i<totalProduct; i++) {
-		if (current < totalPhone) {
-			if (productType[i] == "phone") {		//check the type, if match, then create a new phone
-				phone[current].setName(productName[i]);
-				phone[current].setNameString(productNameString[i]);
-				phone[current].setBrand(productBrand[i]);
-				phone[current].setType(productType[i]);
-				phone[current].setPrice(productPrice[i]);
-				phone[current].setSpecs("snapdragon 855", 8, 128, 6.5, {12.2, 15}, 8, 4000);
-				current++;
-			}
+		if (productType[i] == "phone") {		//check the type, if match, then create a new phone
+			phone[current].setName(productName[i]);
+			phone[current].setNameString(productNameString[i]);
+			phone[current].setBrand(productBrand[i]);
+			phone[current].setType(productType[i]);
+			phone[current].setPrice(productPrice[i]);
+			phone[current].setSpecs("snapdragon 855", 8, 128, productSize[phoneCurrent], {12.2, 15}, 8, 4000);
+			current++;
+			phoneCurrent++;
 		}
 	}
 }
+

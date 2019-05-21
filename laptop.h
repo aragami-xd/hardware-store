@@ -27,19 +27,22 @@ public:
 
 	void setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery);
 
-	string getcpu();
-	int getram();
-	string getgpu();
-	int getssd();
-	int gethdd();
-	float getsize();
-	float getweight();
+	string getCpu();
+	int getRam();
+	string getGpu();
+	int getSsd();
+	int getHdd();
+	float getSize();
+	float getWeight();
 	int getBattery();
 
-	//void setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight);		//add data to specSheet 
-	//specs *getSpecs();
-
 	virtual void printSpecs();
+
+	//second revision function
+	float getpSize();
+	int getpRam();
+	int getpStorage();
+	int getpBattery();
 
 
 	~Laptop();

@@ -42,9 +42,13 @@ public:
 
 	void setMatch(int score);			//this function will add the score to "match" when searching
 	int getMatch();			
-
-
 	virtual void printSpecs() =0;
+
+	//added in second release function. these functions will return a piece of the specs
+	virtual float getpSize() =0;
+	virtual int getpRam() =0;
+	virtual int getpStorage() =0;
+	virtual int getpBattery() =0;
 	
 
 	~Product();
@@ -54,5 +58,4 @@ public:
 
 
 #endif
-
 

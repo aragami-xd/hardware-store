@@ -40,44 +40,44 @@ void Laptop::setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, fl
 
 
 //implement the laptop getcpu function
-string Laptop::getcpu()
+string Laptop::getCpu()
 {
 	return cpu;
 }
 
 
 //implement the laptop getram function
-int Laptop::getram()
+int Laptop::getRam()
 {
 	return ram;
 }
 
 //implement the laptop getgpu function
-string Laptop::getgpu()
+string Laptop::getGpu()
 {
 	return gpu;
 }
 
 //implement the laptop getssd function
-int Laptop::getssd()
+int Laptop::getSsd()
 {
 	return ssd;
 }
 
 //implement the laptop gethdd function
-int Laptop::gethdd()
+int Laptop::getHdd()
 {
 	return hdd;
 }
 
 //implement the laptop getsize function
-float Laptop::getsize()
+float Laptop::getSize()
 {
 	return size;
 }
 
 //implement the laptop getweight function
-float Laptop::getweight()
+float Laptop::getWeight()
 {
 	return weight;
 }
@@ -100,6 +100,30 @@ void Laptop::printSpecs()
 	cout << "Screen size: " << size << " inches" << endl;
 	cout << "Weight: " << weight << " kg (" << (weight*2.2) << " lbs)" << endl;
 	cout << "Battery: " << battery << " Wh" << endl;
+}
+
+//implement the laptop getpSize function
+float Laptop::getpSize()
+{
+	return getSize();
+}
+
+//implement the laptop getpRam function
+int Laptop::getpRam()
+{
+	return getRam();
+}
+
+//implement the laptop getpStorage function
+int Laptop::getpStorage()
+{
+	return getSsd();
+}
+
+//implement the laptop getpBattery function
+int Laptop::getpBattery()
+{
+	return getBattery();
 }
 
 
