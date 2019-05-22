@@ -1,0 +1,18 @@
+rtx 2080 max-q
+mx 150
+gtx 1050 max-q
+mx 150
+gtx 1050ti max-q
+uhd 620
+rtx 2070
+rtx 2070
+uhd 620
+uhd 620
+uhd 620
+rtx 2080 max-q
+rtx 2070 max-q
+mx 130
+mx 150
+mx 150
+mx 150
+mx 150

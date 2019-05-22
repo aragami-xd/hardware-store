@@ -39,25 +39,26 @@ int main()
 
 
 
-	//initialize the array of products' data 
+	//general data
 	//type
 	string *productType = new string[totalProduct];
 	productType = loadStringData(productType, "data/type.txt");
-
 	//brand
 	string *productBrand = new string[totalProduct];
 	productBrand = loadStringData(productBrand, "data/brand.txt");
-
 	//name
 	string *productNameString = new string[totalProduct];
 	productNameString = loadStringData(productNameString, "data/name.txt");
 	vector<string>* productName = convertName(productNameString, totalProduct);		//convert name into names w/out space
-
 	//price
 	int *productPrice = new int[totalProduct];
 	productPrice = loadIntData(productPrice, "data/price.txt");
 
-	//phoneSize
+	//phone dataset
+	//processor
+	string *phoneProcessor = new string[totalPhone];
+	phoneProcessor = loadStringData(phoneProcessor, "data/phone processor.txt");
+	//screen size
 	float *phoneSize = new float[totalPhone];
 	phoneSize = loadFloatData(phoneSize, "data/phone screen.txt");
 
@@ -109,6 +110,6 @@ int main()
 	delete[] productType;
 	delete[] productPrice;
 	delete[] phoneSize;
-
+	delete[] phoneProcessor;
 	return 0;
 }

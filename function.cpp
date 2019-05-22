@@ -54,8 +54,7 @@ int *loadIntData(int *productIntData, string address)
 		int line = 0;
 		string lineData;
 		while (getline(dataTxt, lineData)) {			//input as string so we'll have to convert it to int	
-			istringstream iss(lineData);	
-			iss >> productIntData[line];
+			productIntData[line] = stoi(lineData);
 			line++;
 		}
 		dataTxt.close();
@@ -102,28 +101,41 @@ vector<Product*> searchFunction(Search *search, string productBrand[], string pr
 //run a list of sort functions
 vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct) 
 {
-	bool rightNumber = false;
+	bool rightInput = false;
+	string enableSort;
 	string inputString;				//get the input number, convert from string to int in case a retard put a string in
 	int inputNumber;
-
-	while (rightNumber == false) {
-		cout << "Choose a sorting method: " << endl;
-		cout << "1. Relevance" << endl;
-		cout << "2. Price" << endl;
-		cout << "3. Screen " << endl;
-
-		cin >> inputString;
-		istringstream iss(inputString);
-		iss >> inputNumber;
-
-		if (inputNumber == 2) {
-			finalProduct = sort->priceSort();
-		} else if (inputNumber == 3) {
-			finalProduct = sort->sizeSort();
+	if (finalProduct.size() > 0) { 
+		while (rightInput == false) {
+			cout << "Any custom result sorting? (y/n): ";	//ask user if they want to sort
+			cin >> enableSort;
+			if (enableSort == "y" || enableSort == "n") {
+				rightInput = true;
+			}
 		}
+		if (enableSort == "y") {
+			rightInput = false;
+			while (rightInput == false) {
+				cout << "Choose a sorting method: " << endl;		//list of types of sorts
+				cout << "1. Relevance" << endl;
+				cout << "2. Price" << endl;
+				cout << "3. Screen " << endl;
+				cout << "4. RAM size" << endl;
 
-		if (inputNumber > 0 && inputNumber < 4) {			//in case a retard put a number not in the range 
-			rightNumber = true;
+				cin >> inputString;
+				istringstream iss(inputString);
+				iss >> inputNumber;
+
+				if (inputNumber == 2) {
+					finalProduct = sort->priceSort();
+				} else if (inputNumber == 3) {
+					finalProduct = sort->sizeSort();
+				}
+
+				if (inputNumber > 0 && inputNumber < 4) {			//in case a retard put a number not in the range 
+					rightInput = true;
+				}
+			}
 		}
 	}
 	
@@ -143,16 +155,16 @@ void display(vector<Product*> finalProduct)
 		//selection menu: choose one product
 		string select;
 		int number;
-		bool rightNumber = false;
+		bool rightInput = false;
 		cout << endl;
-		while (rightNumber == false) {			//using a while loop to force user to input a suitable number. if not, do it again
+		while (rightInput == false) {			//using a while loop to force user to input a suitable number. if not, do it again
 			cout << "Choose a product (From 1 to " << finalProduct.size() << "): ";
 			cin >> select;
 			istringstream iss (select);
 			iss >> number;
 			number--;			//number starts from 1, but index starts from 0
 			if (number < finalProduct.size() && number >= 0) {		//if the right number was inputed 
-				rightNumber = true;
+				rightInput = true;
 			}
 		}
 
