@@ -19,11 +19,8 @@ public:
 	Sort(vector<Product*> product);
 
 	int sortType(string type);
-	vector<Product*> priceSort();
-	vector<Product*> sizeSort();
-	//vector<Product*> ramSort();
-	//vector<Product*> storageSort();
-	//vector<Product*> batterySort();
+	vector<Product*> sortBy(string typeOfSort);
+
 
 	~Sort();
 };

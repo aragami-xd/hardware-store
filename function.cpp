@@ -65,7 +65,6 @@ int *loadIntData(int *productIntData, string address)
 //loadFloatData function
 float *loadFloatData(float *productFloatData, string address)
 {
-	int *productIntData;
 	ifstream dataTxt;
 	dataTxt.open(address);
 	while (dataTxt.is_open()) {
@@ -79,6 +78,7 @@ float *loadFloatData(float *productFloatData, string address)
 	}
 	return productFloatData;
 }
+	
 
 
 
@@ -121,18 +121,28 @@ vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct)
 				cout << "2. Price" << endl;
 				cout << "3. Screen " << endl;
 				cout << "4. RAM size" << endl;
+				cout << "5. Storage capacity" << endl;
+				cout << "6. Battery size" << endl;
 
 				cin >> inputString;
 				istringstream iss(inputString);
 				iss >> inputNumber;
+				
 
+				//call a function corresponding to the type of sort 
 				if (inputNumber == 2) {
-					finalProduct = sort->priceSort();
+					finalProduct = sort->sortBy("price");
 				} else if (inputNumber == 3) {
-					finalProduct = sort->sizeSort();
+					finalProduct = sort->sortBy("screen size");
+				} else if (inputNumber == 4) {
+					finalProduct = sort->sortBy("ram capacity");
+				} else if (inputNumber == 5) {
+					finalProduct = sort->sortBy("storage capacity");	
+				} else if (inputNumber == 6) {
+					finalProduct = sort->sortBy("battery capacity");
 				}
 
-				if (inputNumber > 0 && inputNumber < 4) {			//in case a retard put a number not in the range 
+				if (inputNumber > 0 && inputNumber < 7) {			//in case a retard put a number not in the range 
 					rightInput = true;
 				}
 			}
@@ -202,10 +212,10 @@ void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string prod
 
 
 //create phone objects and set their's data 
-void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], float productSize[])
+void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productProcessor[], int productRam[], float productSize[], int productStorage[], float productfCamera[], int productBattery[])
 {
 	int current = 0;
-	int phoneCurrent = 0;
+	int pCurrent = 0;
 	for (int i=0; i<totalProduct; i++) {
 		if (productType[i] == "phone") {		//check the type, if match, then create a new phone
 			phone[current].setName(productName[i]);
@@ -213,9 +223,9 @@ void createPhone(Phone *phone, int totalProduct, int totalPhone, string productT
 			phone[current].setBrand(productBrand[i]);
 			phone[current].setType(productType[i]);
 			phone[current].setPrice(productPrice[i]);
-			phone[current].setSpecs("snapdragon 855", 8, 128, productSize[phoneCurrent], {12.2, 15}, 8, 4000);
+			phone[current].setSpecs(productProcessor[pCurrent], productRam[pCurrent], productStorage[pCurrent], productSize[pCurrent], {12.2, 15}, productfCamera[pCurrent], productBattery[pCurrent]);
 			current++;
-			phoneCurrent++;
+			pCurrent++;
 		}
 	}
 }

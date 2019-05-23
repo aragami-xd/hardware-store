@@ -20,7 +20,7 @@ extern vector<string>* convertName(string productNameString[], int totalProduct)
 extern int* loadPrice(int *productPrice);
 
 extern void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[]);
-extern void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], float productSize[]);
+extern void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productProcessor[], int productRam[], float productSize[], int productStorage[], float productfCamera[], int productBattery[]);
 
 extern vector<Product*> searchFunction(Search *search, string productBrand[], string productType[]);
 extern vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct);
@@ -55,12 +55,24 @@ int main()
 	productPrice = loadIntData(productPrice, "data/price.txt");
 
 	//phone dataset
-	//processor
+	//phone processor
 	string *phoneProcessor = new string[totalPhone];
 	phoneProcessor = loadStringData(phoneProcessor, "data/phone processor.txt");
-	//screen size
+	//phone ram
+	int *phoneRam = new int[totalPhone];
+	phoneRam = loadIntData(phoneRam, "data/phone ram.txt");
+	//phone screen size
 	float *phoneSize = new float[totalPhone];
 	phoneSize = loadFloatData(phoneSize, "data/phone screen.txt");
+	//phone storage
+	int *phoneStorage = new int[totalPhone];
+	phoneStorage = loadIntData(phoneStorage, "data/phone storage.txt");
+	//phone front camera
+	float *phonefCamera = new float[totalPhone];
+	phonefCamera = loadFloatData(phonefCamera, "data/phone front camera.txt");
+	//phone battery 
+	int *phoneBattery = new int[totalPhone];
+	phoneBattery = loadIntData(phoneBattery, "data/phone battery.txt");
 
 	
 
@@ -69,7 +81,7 @@ int main()
 	createLaptop(laptop, totalProduct, totalLaptop, productType, productBrand, productName, productNameString, productPrice);
 
 	//initialize the phones (and set brand, name)
-	createPhone(phone, totalProduct, totalPhone, productType, productBrand, productName, productNameString, productPrice, phoneSize);
+	createPhone(phone, totalProduct, totalPhone, productType, productBrand, productName, productNameString, productPrice, phoneProcessor, phoneRam, phoneSize, phoneStorage, phonefCamera, phoneBattery);
 
 
 
@@ -111,5 +123,10 @@ int main()
 	delete[] productPrice;
 	delete[] phoneSize;
 	delete[] phoneProcessor;
+	delete[] phoneRam;
+	delete[] phoneStorage;
+	delete[] phonefCamera;
+	delete[] phoneBattery;
+
 	return 0;
 }
