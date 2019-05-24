@@ -192,7 +192,7 @@ void display(vector<Product*> finalProduct)
 
 
 //create laptop objects and set their's data 
-void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[])
+void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productCpu[], int productRam[], string productGpu[], float productSize[], int productSsd[], int productHdd[], float productWeight[], int productBattery[])
 {
 	int current = 0;
 	for (int i=0; i<totalProduct; i++) {
@@ -202,7 +202,7 @@ void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string prod
 			laptop[current].setBrand(productBrand[i]);
 			laptop[current].setType(productType[i]);
 			laptop[current].setPrice(productPrice[i]);
-			laptop[current].setSpecs("core i5", 8, "mx150", 256, 0, 15.6, 1.9, 42);
+			laptop[current].setSpecs(productCpu[current], productRam[current], productGpu[current], productSsd[current], productHdd[current], productSize[current], productWeight[current], productBattery[current]);
 			current++;
 		}
 	}
@@ -215,7 +215,6 @@ void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string prod
 void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productProcessor[], int productRam[], float productSize[], int productStorage[], float productfCamera[], int productBattery[])
 {
 	int current = 0;
-	int pCurrent = 0;
 	for (int i=0; i<totalProduct; i++) {
 		if (productType[i] == "phone") {		//check the type, if match, then create a new phone
 			phone[current].setName(productName[i]);
@@ -223,9 +222,8 @@ void createPhone(Phone *phone, int totalProduct, int totalPhone, string productT
 			phone[current].setBrand(productBrand[i]);
 			phone[current].setType(productType[i]);
 			phone[current].setPrice(productPrice[i]);
-			phone[current].setSpecs(productProcessor[pCurrent], productRam[pCurrent], productStorage[pCurrent], productSize[pCurrent], {12.2, 15}, productfCamera[pCurrent], productBattery[pCurrent]);
+			phone[current].setSpecs(productProcessor[current], productRam[current], productStorage[current], productSize[current], {12.2, 15}, productfCamera[current], productBattery[current]);
 			current++;
-			pCurrent++;
 		}
 	}
 }

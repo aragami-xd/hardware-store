@@ -1,10 +1,21 @@
 Enter a product here: 
+Any custom result sorting? (y/n):
+Choose a sorting method:
+1. Relevance
+2. Price
+3. Screen
+4. RAM size
+5. Storage capacity
+6. Battery size
+
 Search Results: 
 1. asus zenbook 13 - Price: $1200
 2. asus zenbook 15 - Price: $1500
 3. asus strix scar ii - Price: $1600
 4. asus strix hero ii - Price: $1400
+5. asus vivobook s15 - Price: $600
+6. asus vivobook s14 - Price: $600
 
-Choose a product (From 1 to 4): 
-asus zenbook 13
-Price: $1200
+Choose a product (From 1 to 6): 
+asus zenbook 15
+Price: $1500

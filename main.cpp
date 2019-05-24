@@ -19,7 +19,7 @@ extern float* loadFloatData(float *productData, string address);
 extern vector<string>* convertName(string productNameString[], int totalProduct);
 extern int* loadPrice(int *productPrice);
 
-extern void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[]);
+extern void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productCpu[], int productRam[], string productGpu[], float productSize[], int productSsd[], int productHdd[], float productWeight[], int productBattery[]);
 extern void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productProcessor[], int productRam[], float productSize[], int productStorage[], float productfCamera[], int productBattery[]);
 
 extern vector<Product*> searchFunction(Search *search, string productBrand[], string productType[]);
@@ -74,11 +74,38 @@ int main()
 	int *phoneBattery = new int[totalPhone];
 	phoneBattery = loadIntData(phoneBattery, "data/phone battery.txt");
 
+	//laptop
+	//cpu
+	string *laptopCpu = new string[totalLaptop];
+	laptopCpu = loadStringData(laptopCpu, "data/laptop cpu.txt");
+	//ram
+	int *laptopRam = new int[totalLaptop];
+	laptopRam = loadIntData(laptopRam, "data/laptop ram.txt");
+	//gpu
+	string *laptopGpu = new string[totalLaptop];
+	laptopGpu = loadStringData(laptopGpu, "data/laptop gpu.txt");
+	//size
+	float *laptopSize = new float[totalLaptop];
+	laptopSize = loadFloatData(laptopSize, "data/laptop screen.txt");
+	//ssd (aka storage)
+	int *laptopSsd = new int[totalLaptop];
+	laptopSsd = loadIntData(laptopSsd, "data/laptop ssd.txt");
+	//hdd
+	int *laptopHdd = new int[totalLaptop];
+	laptopHdd = loadIntData(laptopHdd, "data/laptop hdd.txt");
+	//weight
+	float *laptopWeight = new float[totalLaptop];
+	laptopWeight = loadFloatData(laptopWeight, "data/laptop weight.txt");
+	//battery 
+	int *laptopBattery = new int[totalLaptop];
+	laptopBattery = loadIntData(laptopBattery, "data/laptop battery.txt");
+
+
 	
 
 
 	//initialize the laptops (and set brand, name)
-	createLaptop(laptop, totalProduct, totalLaptop, productType, productBrand, productName, productNameString, productPrice);
+	createLaptop(laptop, totalProduct, totalLaptop, productType, productBrand, productName, productNameString, productPrice, laptopCpu, laptopRam, laptopGpu, laptopSize, laptopSsd, laptopHdd, laptopWeight, laptopBattery);
 
 	//initialize the phones (and set brand, name)
 	createPhone(phone, totalProduct, totalPhone, productType, productBrand, productName, productNameString, productPrice, phoneProcessor, phoneRam, phoneSize, phoneStorage, phonefCamera, phoneBattery);
@@ -127,6 +154,14 @@ int main()
 	delete[] phoneStorage;
 	delete[] phonefCamera;
 	delete[] phoneBattery;
+	delete[] laptopCpu;
+	delete[] laptopRam;
+	delete[] laptopGpu;
+	delete[] laptopSsd;
+	delete[] laptopHdd;
+	delete[] laptopSize;
+	delete[] laptopWeight;
+	delete[] laptopBattery;
 
 	return 0;
 }

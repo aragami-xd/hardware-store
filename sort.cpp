@@ -44,6 +44,7 @@ int Sort::sortType(string type)
 }
 
 
+//implement the sortBy function 
 vector<Product*> Sort::sortBy(string typeOfSort) {
 	int inputNumber = sortType(typeOfSort);
 	vector<Product*> product;
