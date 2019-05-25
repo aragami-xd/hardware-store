@@ -20,7 +20,7 @@ extern vector<string>* convertName(string productNameString[], int totalProduct)
 extern int* loadPrice(int *productPrice);
 
 extern void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productCpu[], int productRam[], string productGpu[], float productSize[], int productSsd[], int productHdd[], float productWeight[], int productBattery[]);
-extern void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productProcessor[], int productRam[], float productSize[], int productStorage[], float productfCamera[], int productBattery[]);
+extern void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productProcessor[], int productRam[], float productSize[], int productStorage[], float productrCamera[], float productfCamera[], int productBattery[]);
 
 extern vector<Product*> searchFunction(Search *search, string productBrand[], string productType[]);
 extern vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct);
@@ -67,6 +67,9 @@ int main()
 	//phone storage
 	int *phoneStorage = new int[totalPhone];
 	phoneStorage = loadIntData(phoneStorage, "data/phone storage.txt");
+	//rear camera
+	float *phonerCamera = new float[totalPhone];
+	phonerCamera = loadFloatData(phonerCamera, "data/phone rear camera.txt");
 	//phone front camera
 	float *phonefCamera = new float[totalPhone];
 	phonefCamera = loadFloatData(phonefCamera, "data/phone front camera.txt");
@@ -108,7 +111,7 @@ int main()
 	createLaptop(laptop, totalProduct, totalLaptop, productType, productBrand, productName, productNameString, productPrice, laptopCpu, laptopRam, laptopGpu, laptopSize, laptopSsd, laptopHdd, laptopWeight, laptopBattery);
 
 	//initialize the phones (and set brand, name)
-	createPhone(phone, totalProduct, totalPhone, productType, productBrand, productName, productNameString, productPrice, phoneProcessor, phoneRam, phoneSize, phoneStorage, phonefCamera, phoneBattery);
+	createPhone(phone, totalProduct, totalPhone, productType, productBrand, productName, productNameString, productPrice, phoneProcessor, phoneRam, phoneSize, phoneStorage, phonerCamera, phonefCamera, phoneBattery);
 
 
 

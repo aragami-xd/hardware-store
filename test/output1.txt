@@ -1,5 +1,6 @@
 Enter a product here: 
 Any custom result sorting? (y/n):
+Any custom result sorting? (y/n):
 Choose a sorting method:
 1. Relevance
 2. Price
@@ -7,6 +8,8 @@ Choose a sorting method:
 4. RAM size
 5. Storage capacity
 6. Battery size
+
+
 
 Search Results: 
 1. asus zenbook 13 - Price: $1200

@@ -12,29 +12,25 @@ Phone::Phone()
 }
 
 //implement the phon (pCpu, pRam, pStorage, pSize, prCamera, pfCamera, pBattery) constructor
-Phone::Phone(string pCpu, int pRam, int pStorage, float pSize, vector<float> prCamera, float pfCamera, int pBattery)
+Phone::Phone(string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery)
 {
 	cpu = pCpu;
 	ram = pRam;
 	size = pSize;
 	storage = pStorage;
-	for (int i=0; i<prCamera.size(); i++) {
-		rCamera.push_back(prCamera[i]);
-	}
+	rCamera = prCamera;
 	fCamera = pfCamera;
 	battery = pBattery;
 }
 
 //implement the phone setSpecs function
-void Phone::setSpecs(string pCpu, int pRam, int pStorage, float pSize, vector<float> prCamera, float pfCamera, int pBattery)
+void Phone::setSpecs(string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery)
 {
 	cpu = pCpu;
 	ram = pRam;
 	size = pSize;
 	storage = pStorage;
-	for (int i=0; i<prCamera.size(); i++) {
-		rCamera.push_back(prCamera[i]);
-	}
+	rCamera = prCamera;
 	fCamera = pfCamera;
 	battery = pBattery;
 }
@@ -65,7 +61,7 @@ int Phone::getStorage()
 }
 
 //implement the phone getrCamera function
-vector<float> Phone::getrCamera()
+float Phone::getrCamera()
 {
 	return rCamera;
 }
@@ -89,17 +85,7 @@ void Phone::printSpecs()
 	cout << "Processor: " << cpu << endl;
 	cout << "RAM: " << ram << " gb" <<  endl;
 	cout << "Storage capacity: " << storage << " gb" << endl;
-	cout << "Screen size: " << size << " inches" << endl;
-	if (rCamera.size() == 1) {				//printing out rear cameras in different scenarios: 1 camera, 0 camera or more than 1
-		cout << "Rear facing camera: " << rCamera[0] << " megapixel" << endl;
-	} else if (rCamera.size() == 0) {
-		cout << "Rear facing camera: 0 megapixel" << endl;
-	} else {
-		cout << "Rear facing cameras:" << endl;
-		for (int i=0; i<rCamera.size(); i++) {
-			cout << "  Camera " << i+1 << ": " <<  rCamera[i] << " megapixel" << endl;
-		}
-	} 
+	cout << "Rear facing camera: " << rCamera << " megapixel" << endl;
 	cout << "Front facing camera: " << fCamera << " megapixel" << endl;
 	cout << "Battery: " << battery << " mAh" << endl;
 }

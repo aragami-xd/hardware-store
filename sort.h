@@ -7,19 +7,22 @@
 
 #include "product.h"
 
-using namespace std;
-
 class Sort
 {
 private: 
-	vector<Product*> finalProduct;
+	std::vector<Product*> finalProduct;
 
 public: 
 	Sort();
-	Sort(vector<Product*> product);
+	Sort(std::vector<Product*> product);
 
-	int sortType(string type);
-	vector<Product*> sortBy(string typeOfSort);
+	void sortPrice(int i, int m, int order);
+	void sortScreen(int i, int m, int order);
+	void sortStorage(int i, int m, int order);
+	void sortRam(int i, int m, int order);
+	void sortBattery(int i, int m, int order);
+	int sortType();
+	std::vector<Product*> sortBy(int inputNumber);
 
 
 	~Sort();

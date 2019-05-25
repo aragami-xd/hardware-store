@@ -8,25 +8,25 @@
 class Phone : public Product 
 {
 private:
-	string cpu;
+	std::string cpu;
 	int ram;
 	float size;
 	int storage;
-	vector<float> rCamera;			//bc nowadays no phones have a single rear camera anymore (nokia 9 pureview)
+	float rCamera;			//bc nowadays no phones have a single rear camera anymore (nokia 9 pureview)
 	float fCamera;
 	int battery;
 	
 public: 
 	Phone();
-	Phone(string pCpu, int pRam, int pStorage, float pSize, vector<float> prCamera, float pfCamera, int pBattery);
+	Phone(string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery);
 
-	void setSpecs(string pCpu, int pRam, int pStorage, float pSize, vector<float> prCamera, float pfCamera, int pBattery);
+	void setSpecs(string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery);
 
-	string getCpu();
+	std::string getCpu();
 	int getRam();
 	float getSize();
 	int getStorage();
-	vector<float> getrCamera();
+	float getrCamera();
 	float getfCamera();
 	int getBattery();
 

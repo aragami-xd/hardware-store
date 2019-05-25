@@ -4,15 +4,12 @@
 #include <string>
 #include "product.h"
 
-using namespace std;
-
-
 class Laptop : public Product
 {
 private: 
-	string cpu;
+	std::string cpu;
 	int ram;
-	string gpu;
+	std::string gpu;
 	int ssd;
 	int hdd;
 	float size;
@@ -22,14 +19,14 @@ private:
 	
 public:
 	Laptop();
-	Laptop(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery);
+	Laptop(std::string lCpu, int lRam, std::string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery);
 
 
-	void setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery);
+	void setSpecs(std::string lCpu, int lRam, std::string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery);
 
-	string getCpu();
+	std::string getCpu();
 	int getRam();
-	string getGpu();
+	std::string getGpu();
 	int getSsd();
 	int getHdd();
 	float getSize();
