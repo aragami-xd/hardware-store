@@ -1,11 +1,23 @@
-echo test 1: input "asus zenbook 13" and "1"
+echo test 1: search: "asus zenbook 13", custom result garbage, custom result "y", sort by "1" - relevance, choose product "2" - zenbook 15 
 ./a.out < test/input1.txt | diff - test/output1.txt
 
 
-echo test 2: input "phone" and "5", which will prompt the program to ask for another input, and "2"
+echo test 2: search "phone", custom result "n", choose product "9" - outside boundary, choose product "2" - s10e
 ./a.out < test/input2.txt | diff - test/output2.txt
 
 
-echo test 3: input "a", expect no result
+echo test 3: search "a", expect no result
 ./a.out < test/input3.txt | diff - test/output3.txt
+
+
+echo test 4: search "samsung phone", custom result "y", sort by "9" - outside boundary, sort by garbage, sort by "2" - Price, order "2" - Low to high, choose product "1" - samsung a60
+./a.out < test/input4.txt | diff - test/output4.txt
+
+
+echo test 5: search "dell phone" - expect phones, custom result "y", sort by garbage, sort by "4" - ram size, order garbage, order "9" - out of boundary, order "1" - High to low, choose product "1" - oneplus 7 pro
+./a.out < test/input5.txt | diff - test/output5.txt
+
+
+echo test 6: search "asus xps 15" - expect asus laptop, custom result "y", sort by "3" - screen size, order "2" - Low to high, choose product "2" - zenbook 15
+./a.out < test/input6.txt | diff - test/output6.txt
 

@@ -34,7 +34,8 @@ int Sort::sortType()
 		cout << "2. Lowest to Highest" << endl;
 
 		cin >> inputString;
-		inputNumber = stoi(inputString);
+		istringstream iss(inputString);
+		iss >> inputNumber;
 
 		if (inputNumber == 1 || inputNumber == 2) {
 			rightNumber = true;

@@ -1,0 +1,38 @@
+Enter a product here: 
+Any custom result sorting? (y/n):
+Choose a sorting method:
+1. Relevance
+2. Price
+3. Screen
+4. RAM size
+5. Storage capacity
+6. Battery size
+Choose a sorting method:
+1. Relevance
+2. Price
+3. Screen
+4. RAM size
+5. Storage capacity
+6. Battery size
+Sort order: 
+1. Highest to Lowest
+2. Lowest to Highest 
+Sort order: 
+1. Highest to Lowest
+2. Lowest to Highest 
+Sort order: 
+1. Highest to Lowest
+2. Lowest to Highest 
+
+Search Results: 
+1. oneplus 7 pro - Price: $700
+2. samsung galaxy s10e - Price: $800
+3. oneplus 6t - Price: $650
+4. huawei p30 pro - Price: $1000
+5. samsung galaxy s10 - Price: $1000
+6. samsung galaxy note 9 - Price: $1000
+
+Choose a product (From 1 to 6): 
+oneplus 7 pro 
+Price: $700
+
