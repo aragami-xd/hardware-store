@@ -21,3 +21,8 @@ echo test 5: search "dell phone" - expect phones, custom result "y", sort by gar
 echo test 6: search "asus xps 15" - expect asus laptop, custom result "y", sort by "3" - screen size, order "2" - Low to high, choose product "2" - zenbook 15
 ./a.out < test/input6.txt | diff - test/output6.txt
 
+
+echo test 7: search "oneplus samsung" - expect samsung phones, custom result "y", sort by "5" - storage capacity, sort order "2" - low to high, choose product "5" - note 9. there will be only 5 products in this search
+./a.out < test/input7.txt | diff - test/output7.txt
+
+
