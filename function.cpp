@@ -28,7 +28,7 @@ vector<string>* convertName(string productNameString[], int totalProduct)
 
 
 //loadStringData
-string *loadStringData(string *productStringData, string address)
+string *loadStringData(string *productStringData, string address)	//load txt data as string 
 {
 	ifstream dataTxt;
 	dataTxt.open(address);
@@ -46,7 +46,7 @@ string *loadStringData(string *productStringData, string address)
 
 
 //loadIntData function
-int *loadIntData(int *productIntData, string address)
+int *loadIntData(int *productIntData, string address)		//read txt data files as int 
 {
 	ifstream dataTxt;
 	dataTxt.open(address);
@@ -63,7 +63,7 @@ int *loadIntData(int *productIntData, string address)
 }
 
 //loadFloatData function
-float *loadFloatData(float *productFloatData, string address)
+float *loadFloatData(float *productFloatData, string address)		//read txt file data as float 
 {
 	ifstream dataTxt;
 	dataTxt.open(address);

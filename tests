@@ -26,3 +26,7 @@ echo test 7: search "oneplus samsung" - expect samsung phones, custom result "y"
 ./a.out < test/input7.txt | diff - test/output7.txt
 
 
+echo test 8: search "15" - expect 15 inches laptop with "15" in its name, sort by "6" - battery, order "1", choose "2" - blade 15
+./a.out < test/input8.txt | diff - test/output8.txt
+
+

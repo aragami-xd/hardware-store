@@ -122,9 +122,8 @@ vector<Product*> Sort::sortBy(int inputNumber) {
 	if (inputNumber != 1) {
 		order = sortType();
 	}
-	//vector<Product*> product;
 	for (int i=0; i<finalProduct.size(); i++) {
-		for (int m=i; m<finalProduct.size(); m++) {	
+		for (int m=i; m<finalProduct.size(); m++) {			//6 different sorting methods 
 			if (inputNumber == 2) {
 				sortPrice(i,m, order);
 			} else if (inputNumber == 3) {
@@ -137,7 +136,6 @@ vector<Product*> Sort::sortBy(int inputNumber) {
 				sortBattery(i,m, order);
 			}
 		}
-		//product.push_back(finalProduct[i]);
 	}
 	return finalProduct;
 }
