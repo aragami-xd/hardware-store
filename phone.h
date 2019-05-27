@@ -18,9 +18,9 @@ private:
 	
 public: 
 	Phone();
-	Phone(string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery);
+	Phone(std::string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery);
 
-	void setSpecs(string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery);
+	void setSpecs(std::string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery);
 
 	std::string getCpu();
 	int getRam();

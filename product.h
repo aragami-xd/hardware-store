@@ -4,18 +4,16 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
 
 class Product
 {
 private: 
-	vector<string> name;
-	string nameString; 		//for display purpose only. functions will be run on name
+	std::vector<string> name;
+	std::string nameString; 		//for display purpose only. functions will be run on name
 	float price;
-	string description;
-	string brand;
-	string type;
+	std::string description;
+	std::string brand;
+	std::string type;
 
 	int id;
 	static int idList;		
@@ -25,18 +23,16 @@ private:
 public:
 	Product();		
 
-	void setName(vector<string> pName);			//name
-	vector<string> getName();
-	void setNameString(string pNameString);
-	string getNameString();
+	void setName(std::vector<string> pName);			//name
+	std::vector<string> getName();
+	void setNameString(std::string pNameString);
+	std::string getNameString();
 	void setPrice(float pPrice);		//price
 	float getPrice();	
-	void setDescription(string pDescription);	//description
-	string getDescription();
-	void setBrand(string pBrand);		//brand
-	string getBrand();
-	void setType(string pType);		//type
-	string getType();
+	void setBrand(std::string pBrand);		//brand
+	std::string getBrand();
+	void setType(std::string pType);		//type
+	std::string getType();
 
 	int getID();
 

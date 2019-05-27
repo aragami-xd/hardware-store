@@ -50,18 +50,6 @@ float Product::getPrice()
 	return price;
 }
 
-//implement the product setDescription function
-void Product::setDescription(string pDescription)
-{
-	description = pDescription;
-}
-
-//implement the product getDescription function
-string Product::getDescription()
-{
-	return description;
-}
-
 //implement the product setBrand function
 void Product::setBrand(string pBrand)
 {
