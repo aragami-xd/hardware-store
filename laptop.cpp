@@ -13,7 +13,7 @@ Laptop::Laptop()
 
 
 //implement the laptop (lCpu, lRam, lGpu, lSsd, lHdd, lSize, lWeight) constructor 
-Laptop::Laptop(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery)
+Laptop::Laptop(std::string lCpu, int lRam, std::string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery)
 {
 	cpu = lCpu;
 	ram = lRam;
@@ -26,7 +26,7 @@ Laptop::Laptop(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSi
 }
 
 //implement the laptop setSpecs function
-void Laptop::setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery)
+void Laptop::setSpecs(std::string lCpu, int lRam, std::string lGpu, int lSsd, int lHdd, float lSize, float lWeight, int lBattery)
 {
 	cpu = lCpu;
 	ram = lRam;
@@ -40,7 +40,7 @@ void Laptop::setSpecs(string lCpu, int lRam, string lGpu, int lSsd, int lHdd, fl
 
 
 //implement the laptop getcpu function
-string Laptop::getCpu()
+std::string Laptop::getCpu()
 {
 	return cpu;
 }
@@ -53,7 +53,7 @@ int Laptop::getRam()
 }
 
 //implement the laptop getgpu function
-string Laptop::getGpu()
+std::string Laptop::getGpu()
 {
 	return gpu;
 }

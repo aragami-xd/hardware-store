@@ -12,7 +12,7 @@ Phone::Phone()
 }
 
 //implement the phon (pCpu, pRam, pStorage, pSize, prCamera, pfCamera, pBattery) constructor
-Phone::Phone(string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery)
+Phone::Phone(std::string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery)
 {
 	cpu = pCpu;
 	ram = pRam;
@@ -24,7 +24,7 @@ Phone::Phone(string pCpu, int pRam, int pStorage, float pSize, float prCamera, f
 }
 
 //implement the phone setSpecs function
-void Phone::setSpecs(string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery)
+void Phone::setSpecs(std::string pCpu, int pRam, int pStorage, float pSize, float prCamera, float pfCamera, int pBattery)
 {
 	cpu = pCpu;
 	ram = pRam;
@@ -37,7 +37,7 @@ void Phone::setSpecs(string pCpu, int pRam, int pStorage, float pSize, float prC
 
 
 //implement the phone getCpu function
-string Phone::getCpu()
+std::string Phone::getCpu()
 {
 	return cpu;
 }

@@ -15,25 +15,25 @@ Product::Product()
 int Product::idList = 218686;				//if ask, this number is from random.org 
 
 //implement the product setName function
-void Product::setName(vector<string> pName)
+void Product::setName(std::vector<std::string> pName)
 {
 	name = pName;
 }
 
 //implement the product getName function
-vector<string> Product::getName()
+std::vector<std::string> Product::getName()
 {
 	return name;
 }
 
 //implement the product setNameString function
-void Product::setNameString(string pNameString)
+void Product::setNameString(std::string pNameString)
 {
 	nameString = pNameString;
 }
 
 //implement the product getNameString()
-string Product::getNameString()
+std::string Product::getNameString()
 {
 	return nameString;
 }
@@ -51,25 +51,25 @@ float Product::getPrice()
 }
 
 //implement the product setBrand function
-void Product::setBrand(string pBrand)
+void Product::setBrand(std::string pBrand)
 {
 	brand = pBrand;
 }
 
 //implement the product getBrand function
-string Product::getBrand()
+std::string Product::getBrand()
 {
 	return brand;
 }
 
 //implement the product setType function 
-void Product::setType(string pType)
+void Product::setType(std::string pType)
 {
 	type = pType;
 }
 
 //implement the product getType function
-string Product::getType()
+std::string Product::getType()
 {
 	return type;
 }

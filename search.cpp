@@ -16,7 +16,7 @@ Search::Search()
 }
 
 //implement the search (totalProduct) function
-Search::Search(int noProduct, vector<Product*> product)
+Search::Search(int noProduct, std::vector<Product*> product)
 {
 	allProduct = product;
 	totalProduct = noProduct;
@@ -35,7 +35,7 @@ void Search::inputSearch()
 
 
 //implement search sortBrand function
-void Search::sortBrand(string inputBrand[])
+void Search::sortBrand(std::string inputBrand[])
 {
 	for (int i=0; i<keywords.size(); i++) {					//check if any keyword match any brand name
 		for (int m=0; m<totalProduct; m++) {
@@ -50,7 +50,7 @@ void Search::sortBrand(string inputBrand[])
 
 
 //implement search sortType function
-void Search::sortType(string inputType[])
+void Search::sortType(std::string inputType[])
 {
 	for (int i=0; i<keywords.size(); i++) {					//check if any keyword match any type name
 		for (int m=0; m<totalProduct; m++) {
@@ -135,7 +135,7 @@ void Search::matchName()
 
 
 //implement the search finalResult function
-vector<Product*> Search::finalResult()
+std::vector<Product*> Search::finalResult()
 {		
 	vector<Product*> sortedProduct;
 	for (int i=0; i<totalProduct; i++) {

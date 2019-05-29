@@ -15,7 +15,7 @@ Sort::Sort()
 }
 
 //implement the sort (product, noShown) constructor
-Sort::Sort(vector<Product*> product)
+Sort::Sort(std::vector<Product*> product)
 {
 	finalProduct = product;
 }
@@ -117,7 +117,7 @@ void Sort::sortPrice(int i, int m, int inputNumber)
 
 
 //implement the sortBy function 
-vector<Product*> Sort::sortBy(int inputNumber) {
+std::vector<Product*> Sort::sortBy(int inputNumber) {
 	int order;
 	if (inputNumber != 1) {
 		order = sortType();

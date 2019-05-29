@@ -11,9 +11,9 @@ class Search
 private:
 
 	int totalProduct;
-	std::vector<string> keywords;
+	std::vector<std::string> keywords;
 
-	std::vector<string> name;
+	std::vector<std::string> name;
 	std::string brand;
 	std::string type;
 
@@ -30,7 +30,7 @@ public:
 	Search(int totalProduct, std::vector<Product*> product);
 
 	void inputSearch();			//input the search "sentence" from the keyboard and split to words
-	std::vector<string> getAllData(std::string productData[]);			//remove duplicate from dataset 
+	std::vector<std::string> getAllData(std::string productData[]);			//remove duplicate from dataset 
 
 	void sortBrand(std::string inputBrand[]);		//check if there are any brand in the keyword
 	void sortType(std::string inputType[]);		//check if there are any type in the keyword

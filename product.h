@@ -8,7 +8,7 @@
 class Product
 {
 private: 
-	std::vector<string> name;
+	std::vector<std::string> name;
 	std::string nameString; 		//for display purpose only. functions will be run on name
 	float price;
 	std::string description;
@@ -23,8 +23,8 @@ private:
 public:
 	Product();		
 
-	void setName(std::vector<string> pName);			//name
-	std::vector<string> getName();
+	void setName(std::vector<std::string> pName);			//name
+	std::vector<std::string> getName();
 	void setNameString(std::string pNameString);
 	std::string getNameString();
 	void setPrice(float pPrice);		//price
