@@ -21,8 +21,8 @@ public:
 	void sortStorage(int i, int m, int order);
 	void sortRam(int i, int m, int order);
 	void sortBattery(int i, int m, int order);
-	int sortType();
-	std::vector<Product*> sortBy(int inputNumber);
+	int sortType();			//general function that receives the input of which order of the sort the user wants to use 
+	std::vector<Product*> sortBy(int inputNumber);			//which sorting method the user wants to use
 
 
 	~Sort();

@@ -7,7 +7,7 @@
 class Laptop : public Product
 {
 private: 
-	std::string cpu;
+	std::string cpu;			//basically specs 
 	int ram;
 	std::string gpu;
 	int ssd;

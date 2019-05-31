@@ -8,11 +8,11 @@
 class Phone : public Product 
 {
 private:
-	std::string cpu;
+	std::string cpu;		//basically specs
 	int ram;
 	float size;
 	int storage;
-	float rCamera;			//bc nowadays no phones have a single rear camera anymore (nokia 9 pureview)
+	float rCamera;			
 	float fCamera;
 	int battery;
 	
@@ -33,7 +33,7 @@ public:
 	virtual void printSpecs();
 
 	//second revision
-	float getpSize();
+	float getpSize();		//for product pure virtual functions 
 	int getpRam();
 	int getpStorage();
 	int getpBattery();

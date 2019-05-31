@@ -36,11 +36,11 @@ public:
 	void sortType(std::string inputType[]);		//check if there are any type in the keyword
 	void sortName();				//the rest of the data will be name 
 
-	void matchBrand();
+	void matchBrand();		//check every item in allProduct and see what that product matches in the search phrase 
 	void matchType();
 	void matchName();
 	
-	std::vector<Product*> finalResult();
+	std::vector<Product*> finalResult();		//keep a couple of items, remove the rest and return it 
 
 	~Search();
 };

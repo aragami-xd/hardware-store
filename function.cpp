@@ -19,7 +19,7 @@ vector<string>* convertName(string productNameString[], int totalProduct)
 {
 	vector<string> *vectorName = new vector<string>[totalProduct];		//the pointer to the array
 	for (int i=0; i<totalProduct; i++) {
-		istringstream iss(productNameString[i]);			//splitting name into words 
+		istringstream iss(productNameString[i]);			//splitting name into words, used for name comparison 
 		vector<string> result(istream_iterator<string>{iss}, istream_iterator<string>());
 		vectorName[i] = result;
 	}
@@ -126,7 +126,7 @@ vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct)
 				cout << "6. Battery size" << endl;
 
 				cin >> inputString;
-				istringstream iss(inputString);
+				istringstream iss(inputString);		//in case garbage input 
 				iss >> inputNumber;
 				
 
@@ -160,7 +160,7 @@ void display(vector<Product*> finalProduct)
 		while (rightInput == false) {			//using a while loop to force user to input a suitable number. if not, do it again
 			cout << "Choose a product (From 1 to " << finalProduct.size() << "): ";
 			cin >> select;
-			istringstream iss (select);
+			istringstream iss (select);		//garbage input 
 			iss >> number;
 			number--;			//number starts from 1, but index starts from 0
 			if (number < finalProduct.size() && number >= 0) {		//if the right number was inputed 

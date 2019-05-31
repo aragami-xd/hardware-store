@@ -25,7 +25,7 @@ public:
 
 	void setName(std::vector<std::string> pName);			//name
 	std::vector<std::string> getName();
-	void setNameString(std::string pNameString);
+	void setNameString(std::string pNameString);		//name string, used for display purpose 
 	std::string getNameString();
 	void setPrice(float pPrice);		//price
 	float getPrice();	
@@ -37,7 +37,7 @@ public:
 	int getID();
 
 	void setMatch(int score);			//this function will add the score to "match" when searching
-	int getMatch();			
+	int getMatch();				//get the matching score
 	virtual void printSpecs() =0;
 
 	//added in second release function. these functions will return a piece of the specs
