@@ -1,28 +1,30 @@
-Enter a product here: 
-Any custom result sorting? (y/n):
-Choose a sorting method:
+Welcome to HardwareStore.com. We sell laptops and phones
+We're not Apple store, so don't search for those things here
+Enter a product here: Brand: dell
+Type: phone
+Any custom result sorting, default is by relevance? (y/n): Choose a sorting method: 
 1. Relevance
 2. Price
 3. Screen
 4. RAM size
 5. Storage capacity
 6. Battery size
-Choose a sorting method:
+Choose a sorting method: 
 1. Relevance
 2. Price
 3. Screen
 4. RAM size
 5. Storage capacity
 6. Battery size
-Sort order: 
+Sort order:
 1. Highest to Lowest
-2. Lowest to Highest 
-Sort order: 
+2. Lowest to Highest
+Sort order:
 1. Highest to Lowest
-2. Lowest to Highest 
-Sort order: 
+2. Lowest to Highest
+Sort order:
 1. Highest to Lowest
-2. Lowest to Highest 
+2. Lowest to Highest
 
 Search Results: 
 1. oneplus 7 pro - Price: $700
@@ -33,6 +35,16 @@ Search Results:
 6. samsung galaxy note 9 - Price: $1000
 
 Choose a product (From 1 to 6): 
-oneplus 7 pro 
+oneplus 7 pro
 Price: $700
+Specifications
+Processor: snapdragon 855
+RAM: 12 gb
+Storage capacity: 256 gb
+Rear facing camera: 48 megapixel
+Front facing camera: 16 megapixel
+Battery: 4000 mAh
+
+
+
 

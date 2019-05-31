@@ -108,7 +108,7 @@ vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct)
 	int inputNumber;
 	if (finalProduct.size() > 0) { 
 		while (rightInput == false) {
-			cout << "Any custom result sorting? (y/n): ";	//ask user if they want to sort
+			cout << "Any custom result sorting, default is by relevance? (y/n): ";	//ask user if they want to sort
 			cin >> enableSort;
 			if (enableSort == "y" || enableSort == "n") {
 				rightInput = true;
@@ -120,7 +120,7 @@ vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct)
 				cout << "Choose a sorting method: " << endl;		//list of types of sorts
 				cout << "1. Relevance" << endl;
 				cout << "2. Price" << endl;
-				cout << "3. Screen " << endl;
+				cout << "3. Screen" << endl;
 				cout << "4. RAM size" << endl;
 				cout << "5. Storage capacity" << endl;
 				cout << "6. Battery size" << endl;
@@ -172,7 +172,7 @@ void display(vector<Product*> finalProduct)
 		cout << endl;
 		cout << finalProduct[number]->getBrand() << " " << finalProduct[number]->getNameString() << endl;		//print name, price, specs...
 		cout << "Price: $" << finalProduct[number]->getPrice() << endl;
-		//finalProduct[number]->printSpecs();		//print specs won't be tested, bc if it doesn't work, then other part of the program will not work either
+		finalProduct[number]->printSpecs();		
 	} else {
 		cout << "No result" << endl;			//if there are no results
 	}

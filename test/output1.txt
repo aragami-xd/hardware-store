@@ -1,15 +1,16 @@
-Enter a product here: 
-Any custom result sorting? (y/n):
-Any custom result sorting? (y/n):
-Choose a sorting method:
+Welcome to HardwareStore.com. We sell laptops and phones
+We're not Apple store, so don't search for those things here
+Enter a product here: Brand: asus
+Type: 
+Name: zenbook
+Name: 13
+Any custom result sorting, default is by relevance? (y/n): Any custom result sorting, default is by relevance? (y/n): Choose a sorting method: 
 1. Relevance
 2. Price
 3. Screen
 4. RAM size
 5. Storage capacity
 6. Battery size
-
-
 
 Search Results: 
 1. asus zenbook 13 - Price: $1200
@@ -22,3 +23,16 @@ Search Results:
 Choose a product (From 1 to 6): 
 asus zenbook 15
 Price: $1500
+Specifications
+Processor: i7-8565u
+RAM: 16 gb
+Graphics Card: gtx 1050 max-q
+Solid State Drive: 512 gb
+Hard Disk Drive: 0 gb
+Screen size: 15.6 inches
+Weight: 1.6 kg (3.52 lbs)
+Battery: 75 Wh
+
+
+
+

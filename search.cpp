@@ -25,6 +25,8 @@ Search::Search(int noProduct, std::vector<Product*> product)
 //implement the search inputSearch function
 void Search::inputSearch()
 {
+	cout << "Welcome to HardwareStore.com. We sell laptops and phones" << endl;
+	cout << "We're not Apple store, so don't search for those things here" << endl;
 	string phrase;
 	cout << "Enter a product here: ";
 	getline(cin, phrase);			//input the whole line of text as a string
@@ -44,6 +46,7 @@ void Search::sortBrand(std::string inputBrand[])
 			}
 		}
 	}
+	cout << "Brand: " << brand << endl;
 }
 
 
@@ -59,6 +62,7 @@ void Search::sortType(std::string inputType[])
 			}
 		}
 	}
+	cout << "Type: " << type << endl;
 }
 
 
@@ -69,6 +73,9 @@ void Search::sortName()
 		if (keywords[i] != brand && keywords[i] != type) {			//if it's not type or brand, then it's a name
 			name.push_back(keywords[i]);
 		}
+	}
+	for (int i=0; i<name.size(); i++) {
+		cout << "Name: " << name[i] << endl;
 	}
 }
 

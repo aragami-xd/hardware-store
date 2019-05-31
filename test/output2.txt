@@ -1,6 +1,8 @@
-Enter a product here: 
-Any custom result sorting? (y/n): 
-
+Welcome to HardwareStore.com. We sell laptops and phones
+We're not Apple store, so don't search for those things here
+Enter a product here: Brand: 
+Type: phone
+Any custom result sorting, default is by relevance? (y/n): 
 Search Results: 
 1. samsung galaxy s10 - Price: $1000
 2. samsung galaxy s10e - Price: $800
@@ -9,7 +11,17 @@ Search Results:
 5. oneplus 7 pro - Price: $700
 6. samsung galaxy note 9 - Price: $1000
 
-Choose a product (From 1 to 6): 
-Choose a product (From 1 to 6):
+Choose a product (From 1 to 6): Choose a product (From 1 to 6): 
 samsung galaxy s10e
 Price: $800
+Specifications
+Processor: snapdragon 855
+RAM: 8 gb
+Storage capacity: 256 gb
+Rear facing camera: 12 megapixel
+Front facing camera: 10 megapixel
+Battery: 3100 mAh
+
+
+
+

@@ -1,23 +1,37 @@
-Enter a product here: 
-Any custom result sorting? (y/n):
-Choose a sorting method:
+Welcome to HardwareStore.com. We sell laptops and phones
+We're not Apple store, so don't search for those things here
+Enter a product here: Brand: samsung
+Type: 
+Name: oneplus
+Any custom result sorting, default is by relevance? (y/n): Choose a sorting method: 
 1. Relevance
 2. Price
 3. Screen
 4. RAM size
 5. Storage capacity
 6. Battery size
-Sort order: 
+Sort order:
 1. Highest to Lowest
-2. Lowest to Highest 
+2. Lowest to Highest
 
-Search Results:
+Search Results: 
 1. samsung galaxy a60 - Price: $400
 2. samsung galaxy a70 - Price: $500
 3. samsung galaxy s10e - Price: $800
 4. samsung galaxy s10 - Price: $1000
 5. samsung galaxy note 9 - Price: $1000
 
-Choose a product (From 1 to 5):
+Choose a product (From 1 to 5): 
 samsung galaxy note 9
 Price: $1000
+Specifications
+Processor: snapdragon 845
+RAM: 8 gb
+Storage capacity: 512 gb
+Rear facing camera: 12 megapixel
+Front facing camera: 8 megapixel
+Battery: 4000 mAh
+
+
+
+
