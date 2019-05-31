@@ -19,11 +19,11 @@ private:
 
 	std::vector<Product*> allProduct;
 
-	int scoreBrand = 20;			//storing the "score" of matching data (e.g matching type = 50 points, matching type = 20 points)
-	int scoreType = 50;
-	int scoreName = 10;
-	int associateName = 10;		//if matchName is called, every product in the same category or brand will also gain some points (normal search engine behavior)
-	int productShown = 6;		//how many products will be shown 
+	int scoreBrand;			//storing the "score" of matching data (e.g matching type = 50 points, matching type = 20 points)
+	int scoreType;
+	int scoreName;
+	int associateName;		//if matchName is called, every product in the same category or brand will also gain some points (normal search engine behavior)
+	int productShown;		//how many products will be shown 
 
 public:
 	Search();

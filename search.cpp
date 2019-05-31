@@ -13,6 +13,11 @@ using namespace std;
 //implement the default search constructor
 Search::Search()
 {
+	scoreBrand = 20;			
+	scoreType = 50;
+	scoreName = 10;
+	associateName = 10;		
+	productShown = 6;
 }
 
 //implement the search (totalProduct) function
@@ -20,6 +25,11 @@ Search::Search(int noProduct, std::vector<Product*> product)
 {
 	allProduct = product;
 	totalProduct = noProduct;
+	scoreBrand = 20;			
+	scoreType = 50;
+	scoreName = 10;
+	associateName = 10;		
+	productShown = 6;
 }
 
 //implement the search inputSearch function
