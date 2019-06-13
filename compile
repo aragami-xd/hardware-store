@@ -1,2 +1,2 @@
 echo 
-g++ product.cpp product.h laptop.cpp laptop.h phone.cpp phone.h search.cpp search.h sort.cpp sort.h function.cpp main.cpp
+g++ product.cpp product.h laptop.cpp laptop.h phone.cpp phone.h search.cpp search.h sort.cpp sort.h buy.cpp buy.h function.cpp main.cpp

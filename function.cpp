@@ -10,6 +10,7 @@
 #include "laptop.h"
 #include "phone.h"
 #include "sort.h"
+#include "buy.h"
 
 
 using namespace std;
@@ -99,6 +100,7 @@ vector<Product*> searchFunction(Search *search, string productBrand[], string pr
 }
 
 
+
 //run a list of sort functions
 vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct) 
 {
@@ -143,7 +145,13 @@ vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct)
 }
 
 
-void display(vector<Product*> finalProduct) 
+
+//forward declaring addToCart function
+void addToCart(vector<Product*> finalProduct, Buy *buy, int number);
+
+
+//displaying the search result and the product itself
+void display(vector<Product*> finalProduct, Buy *buy) 
 {
 	cout << endl;
 	cout << "Search Results: " << endl;
@@ -172,9 +180,40 @@ void display(vector<Product*> finalProduct)
 		cout << endl;
 		cout << finalProduct[number]->getBrand() << " " << finalProduct[number]->getNameString() << endl;		//print name, price, specs...
 		cout << "Price: $" << finalProduct[number]->getPrice() << endl;
-		finalProduct[number]->printSpecs();		
+		finalProduct[number]->printSpecs();	
+
+		addToCart(finalProduct, buy, number);
 	} else {
 		cout << "No result" << endl;			//if there are no results
+	}
+}
+
+
+
+
+//addToCart function, see if user want to add the item to cart or not
+void addToCart(vector<Product*> finalProduct, Buy *buy, int number)
+{	
+	bool rightInput = false;
+	//add to cart or not
+	while (rightInput == false) {
+		string addCart;
+		string checkout;
+		cout << "Add to cart? (y/n)" << endl;			//check if add to cart or not	
+		cin >> addCart;
+
+		if (addCart == "y") {				//if add to cart
+			buy->setCart(finalProduct[number]);
+			cout << "Product added. Proceed to checkout (1) or continue shopping (2)?" << endl;			//to checkout or not
+			cin >> checkout;
+
+		} else if (addCart == "n") {			//if not add to cart, return to displaying search result
+			display(finalProduct, buy);
+		}
+
+		if (addCart == "y" || addCart == "n") {			//input either y or n
+			rightInput = true;	
+		}
 	}
 }
 
@@ -217,4 +256,15 @@ void createPhone(Phone *phone, int totalProduct, int totalPhone, string productT
 		}
 	}
 }
+
+
+//buyFunction
+void buyFunction(Buy *buy) 
+{
+	
+}
+
+
+
+
 

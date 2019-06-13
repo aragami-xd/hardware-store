@@ -10,6 +10,7 @@
 #include "laptop.h"
 #include "phone.h"
 #include "sort.h"
+#include "buy.h"
 
 using namespace std;
 
@@ -24,7 +25,9 @@ extern void createPhone(Phone *phone, int totalProduct, int totalPhone, string p
 
 extern vector<Product*> searchFunction(Search *search, string productBrand[], string productType[]);
 extern vector<Product*> sortFunction(Sort *sort, vector<Product*> finalProduct);
-extern void display(vector<Product*> finalProduct);
+extern void display(vector<Product*> finalProduct, Buy *buy);
+
+extern void buyFunction(Buy *buy);
 
 int main()
 {
@@ -133,11 +136,17 @@ int main()
 	//initialize search and sort
 	Search *search = new Search(totalProduct, allProduct);
 	Sort *sort;
+	Buy *buy = new Buy();
 	//search and sort functions
 	vector<Product*> finalProduct = searchFunction(search, productBrand, productType);
 	sort = new Sort(finalProduct);
 	finalProduct = sortFunction(sort, finalProduct);
-	display(finalProduct);
+	display(finalProduct, buy);
+
+
+	//buy function
+	buyFunction(buy);
+
 
 
 
@@ -146,11 +155,16 @@ int main()
 	delete search;
 	delete[] laptop;
 	delete[] phone;
+	delete buy;
+
+	//general detail delete
 	delete[] productNameString;
 	delete[] productName;
 	delete[] productBrand;
 	delete[] productType;
 	delete[] productPrice;
+
+	//specs delete
 	delete[] phoneSize;
 	delete[] phoneProcessor;
 	delete[] phoneRam;
