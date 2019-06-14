@@ -56,7 +56,6 @@ void Search::sortBrand(std::string inputBrand[])
 			}
 		}
 	}
-	cout << "Brand: " << brand << endl;
 }
 
 
@@ -72,7 +71,6 @@ void Search::sortType(std::string inputType[])
 			}
 		}
 	}
-	cout << "Type: " << type << endl;
 }
 
 
@@ -83,9 +81,6 @@ void Search::sortName()
 		if (keywords[i] != brand && keywords[i] != type) {			//if it's not type or brand, then it's a name
 			name.push_back(keywords[i]);
 		}
-	}
-	for (int i=0; i<name.size(); i++) {
-		cout << "Name: " << name[i] << endl;
 	}
 }
 

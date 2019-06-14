@@ -7,10 +7,11 @@ Buy::Buy()
 {
 }
 
-//implement the buy setCart function					//Oh shit, here we go again...
+//implement the buy setCart function					//ah shit, here we go again...
 void Buy::setCart(Product *newProduct)
 {
 	cart.push_back(newProduct);
+	setCost(newProduct->getPrice());
 }
 
 //implement the buy getCart function	

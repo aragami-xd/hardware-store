@@ -182,14 +182,16 @@ void display(vector<Product*> finalProduct, Buy *buy)
 		cout << "Price: $" << finalProduct[number]->getPrice() << endl;
 		finalProduct[number]->printSpecs();	
 
+		//addToCart function
 		addToCart(finalProduct, buy, number);
+
 	} else {
 		cout << "No result" << endl;			//if there are no results
 	}
 }
 
 
-
+void buyFunction(Buy *buy);
 
 //addToCart function, see if user want to add the item to cart or not
 void addToCart(vector<Product*> finalProduct, Buy *buy, int number)
@@ -199,6 +201,7 @@ void addToCart(vector<Product*> finalProduct, Buy *buy, int number)
 	while (rightInput == false) {
 		string addCart;
 		string checkout;
+		cout << endl;
 		cout << "Add to cart? (y/n)" << endl;			//check if add to cart or not	
 		cin >> addCart;
 
@@ -206,22 +209,104 @@ void addToCart(vector<Product*> finalProduct, Buy *buy, int number)
 			buy->setCart(finalProduct[number]);
 			cout << "Product added. Proceed to checkout (1) or continue shopping (2)?" << endl;			//to checkout or not
 			cin >> checkout;
+			if (checkout == "1") {
+				buyFunction(buy);
+			} else if (checkout == "2") {
+				display(finalProduct, buy);
+			}
+			
 
 		} else if (addCart == "n") {			//if not add to cart, return to displaying search result
 			display(finalProduct, buy);
 		}
 
-		if (addCart == "y" || addCart == "n") {			//input either y or n
+		if (addCart == "y" || addCart == "n") {			//input either y or n, exit the function 
 			rightInput = true;	
 		}
 	}
 }
 
+//buyFunction
+void buyFunction(Buy *buy) 
+{
+	vector<Product*> cart = buy->getCart();
+
+	cout << endl;
+	cout << "Cart: " << endl;			//print out the cart 
+	for (int i=0; i<cart.size(); i++) {
+		cout << cart[i]->getNameString() << endl;
+	}
+
+	cout << "Total price: $" << buy->getCost() << endl;
+	cout << "Shipping: $" << buy->getCost() * 0.1 << endl;	
+
+	//get customer details
+	cout << endl;
+	string fName;
+	cout << "Enter your first name: ";
+	cin >> fName;
+	buy->setfName(fName);
+
+	string lName;
+	cout << "Enter your last name: ";
+	cin >> lName;
+	buy->setlName(lName);
+
+	string address;
+	cout << "Enter address here: ";
+	getline(cin, address);
+	buy->setAddress(address);
+	cout << endl;
+
+	string card;
+	cout << "Enter credit card here: ";
+	cin >> card;
+	buy->setCreditCard(card);
+
+	string cvvInput;
+	int cvv;
+	cout << "Enter CVV number here (the 3 digits behind your card): ";
+	cin >> cvvInput;
+	istringstream iss(cvvInput);		//in case garbage input 
+	iss >> cvv;
+	buy->setCVV(cvv);
+
+	//summary
+	cout << endl;
+	cout << "Name: " << buy->getfName() << " " << buy->getlName() << endl;
+	cout << "Address: " << buy->getAddress() << endl;
+	cout << "Credit card: " << buy->getCreditCard() << endl;
+
+	bool rightInput = false;
+	while (rightInput == false) {
+		string purchase;
+		cout << "Purchase? (y/n) " << endl;
+		cin >> purchase;
+		if (purchase == "y") {
+			cout << "Processing your purchasement..." << endl;
+			cout << "Thank you for your purchasement!" << endl;
+		} else if (purchase == "n") {
+			cout << "..." << endl;
+		}
+		if (purchase == "y" || purchase == "n") {
+			rightInput = true;
+		}
+	}	
+
+}
+
+
+
+
+
+
 
 
 
 //create laptop objects and set their's data 
-void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productCpu[], int productRam[], string productGpu[], float productSize[], int productSsd[], int productHdd[], float productWeight[], int productBattery[])
+void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string productType[], string productBrand[], 
+	vector<string>* productName, string productNameString[], int productPrice[], string productCpu[], int productRam[],
+	string productGpu[], float productSize[], int productSsd[], int productHdd[], float productWeight[], int productBattery[])
 {
 	int current = 0;
 	for (int i=0; i<totalProduct; i++) {
@@ -241,7 +326,9 @@ void createLaptop(Laptop *laptop, int totalProduct, int totalLaptop, string prod
 
 
 //create phone objects and set their's data 
-void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[], vector<string>* productName, string productNameString[], int productPrice[], string productProcessor[], int productRam[], float productSize[], int productStorage[], float productrCamera[], float productfCamera[], int productBattery[])
+void createPhone(Phone *phone, int totalProduct, int totalPhone, string productType[], string productBrand[],
+	vector<string>* productName, string productNameString[], int productPrice[], string productProcessor[], int productRam[],
+	float productSize[], int productStorage[], float productrCamera[], float productfCamera[], int productBattery[])
 {
 	int current = 0;
 	for (int i=0; i<totalProduct; i++) {
@@ -257,12 +344,6 @@ void createPhone(Phone *phone, int totalProduct, int totalPhone, string productT
 	}
 }
 
-
-//buyFunction
-void buyFunction(Buy *buy) 
-{
-	
-}
 
 
 

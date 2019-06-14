@@ -20,7 +20,7 @@ private:
 public:
 	Buy();
 
-	void setCart(Product *newProduct);			//oh shit, here we go again...
+	void setCart(Product *newProduct);			//ah shit, here we go again...
 	std::vector<Product*> getCart();
 	void setCost(int totalCost);
 	int getCost();

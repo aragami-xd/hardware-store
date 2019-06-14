@@ -133,19 +133,18 @@ int main()
 
 
 
-	//initialize search and sort
+	//initialize search, sort and buy
 	Search *search = new Search(totalProduct, allProduct);
 	Sort *sort;
 	Buy *buy = new Buy();
+
 	//search and sort functions
-	vector<Product*> finalProduct = searchFunction(search, productBrand, productType);
+	vector<Product*> finalProduct = searchFunction(search, productBrand, productType);	//get the list of products after search
 	sort = new Sort(finalProduct);
-	finalProduct = sortFunction(sort, finalProduct);
-	display(finalProduct, buy);
 
+	finalProduct = sortFunction(sort, finalProduct);		//sort those products
+	display(finalProduct, buy);			//display them. Buy functions will be called here
 
-	//buy function
-	buyFunction(buy);
 
 
 
